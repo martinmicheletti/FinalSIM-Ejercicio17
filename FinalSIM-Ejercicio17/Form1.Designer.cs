@@ -44,6 +44,8 @@ namespace FinalSIM_Ejercicio17
             this.label6 = new System.Windows.Forms.Label();
             this.txtVentasPerdidas = new System.Windows.Forms.TextBox();
             this.NroDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RandomDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,7 +53,9 @@ namespace FinalSIM_Ejercicio17
             // 
             this.dataGridViewSimulacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSimulacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.NroDia});
+            this.NroDia,
+            this.RandomDemanda,
+            this.Demanda});
             this.dataGridViewSimulacion.Location = new System.Drawing.Point(12, 56);
             this.dataGridViewSimulacion.Name = "dataGridViewSimulacion";
             this.dataGridViewSimulacion.RowTemplate.Height = 25;
@@ -170,6 +174,16 @@ namespace FinalSIM_Ejercicio17
             this.NroDia.HeaderText = "N° Dia";
             this.NroDia.Name = "NroDia";
             // 
+            // RandomDemanda
+            // 
+            this.RandomDemanda.HeaderText = "Random Demanda";
+            this.RandomDemanda.Name = "RandomDemanda";
+            // 
+            // Demanda
+            // 
+            this.Demanda.HeaderText = "Demanda";
+            this.Demanda.Name = "Demanda";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -215,6 +229,8 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtVentasPerdidas;
         private System.Windows.Forms.DataGridViewTextBoxColumn NroDia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RandomDemanda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Demanda;
     }
 }
 

@@ -22,32 +22,41 @@ namespace FinalSIM_Ejercicio17
 
         }
 
-        public double GetFrecuenciaPorDemanda(int demanda)
+        public int GetDemandaPorFrecuencia(double frecuencia)
         {
-            double freq = 0;
-            switch (demanda)
+            int demanda = 0;
+
+            if (0 <= frecuencia && frecuencia < 0.30)
             {
-                case 20:
-                    freq = 0.30;
-                    break;
-                case 21:
-                    freq = 0.25;
-                    break;
-                case 22:
-                    freq = 0.20;
-                    break;
-                case 23:
-                    freq = 0.05;
-                    break;
-                case 24:
-                    freq = 0.10;
-                    break;
-                case 25:
-                    freq = 0.10;
-                    break;
-                default: break;
+                demanda = 20;
             }
-            return freq;
+
+            if (0.30 <= frecuencia && frecuencia < 0.55)
+            {
+                demanda = 21;
+            }
+
+            if (0.55 <= frecuencia && frecuencia < 0.75)
+            {
+                demanda = 22;
+            }
+
+            if (0.75 <= frecuencia && frecuencia < 0.80)
+            {
+                demanda = 23;
+            }
+
+            if (0.80 <= frecuencia && frecuencia < 0.90)
+            {
+                demanda = 24;
+            }
+
+            if (0.90 <= frecuencia && frecuencia < 1)
+            {
+                demanda = 25;
+            }
+
+            return demanda;
         }
 
         private bool ValidarIngresoDatos()
@@ -83,6 +92,10 @@ namespace FinalSIM_Ejercicio17
 
             int dia = 0;
 
+            // 46.46 segundos los 200.000 dias con while
+
+            // Mas de 2 minutos con 30 segundos los 200.000 dias con for
+
             while (dia < diasTiempoTotal)
             {
                 if (dia == 0)
@@ -96,21 +109,30 @@ namespace FinalSIM_Ejercicio17
                 }
 
                 // Se calcula la demanda y las ventas perdidas
+                double rnd = random.NextDouble();
+
+                int demanda = GetDemandaPorFrecuencia(rnd);
+
+                // demanda por frecuencia
 
 
                 // Se calcula la demanda por día y el costo
 
 
                 // Se determinan faltantes
-                
+
                 // Se agregan los datos a la fila nueva
                 int idx = dataGridViewSimulacion.Rows.Add();
                 DataGridViewRow row = dataGridViewSimulacion.Rows[idx];
                 row.Cells["NroDia"].Value = dia;
+                row.Cells["RandomDemanda"].Value = Math.Round(rnd, 5);
+                row.Cells["Demanda"].Value = demanda;
 
                 dia++;
 
             }
+
+
 
         }
     }
