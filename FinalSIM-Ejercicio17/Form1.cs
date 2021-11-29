@@ -52,7 +52,7 @@ namespace FinalSIM_Ejercicio17
 
         private bool ValidarIngresoDatos()
         {
-            return false;
+            return true;
         }
 
         private void OnClickIniciarSimulacion(object sender, EventArgs e)
@@ -72,16 +72,45 @@ namespace FinalSIM_Ejercicio17
             Random random = new Random();
 
             // Tomar datos de input
-            double precioCompra = double.Parse(txtPrecioCompra.Text);
-            double precioReembolso = double.Parse(txtPrecioReembolso.Text);
-            double costoUtilidad = double.Parse(txtCostoUtilidad.Text);
+            //double precioCompra = double.Parse(txtPrecioCompra.Text.ToString());
+            //double precioReembolso = double.Parse(txtPrecioReembolso.Text.ToString());
+            //double costoUtilidad = double.Parse(txtCostoUtilidad.Text.ToString());
 
-            int demandaAnterior = int.Parse(txtDemandaAnteriorInicial.Text);
-            int ventasPerdidas = int.Parse(txtVentasPerdidas.Text);
+            //int demandaAnterior = int.Parse(txtDemandaAnteriorInicial.Text.ToString());
+            //int ventasPerdidas = int.Parse(txtVentasPerdidas.Text.ToString());
+
+            int diasTiempoTotal = int.Parse(txtTiempoTotalSimulacion.Text.ToString());
+
+            int dia = 0;
+
+            while (dia < diasTiempoTotal)
+            {
+                if (dia == 0)
+                {
+                    // Condicion Inicial
+
+                    //var demanda = demandaAnterior;
+                    //var cantVentasPerdidas = ventasPerdidas;
 
 
+                }
+
+                // Se calcula la demanda y las ventas perdidas
 
 
+                // Se calcula la demanda por día y el costo
+
+
+                // Se determinan faltantes
+                
+                // Se agregan los datos a la fila nueva
+                int idx = dataGridViewSimulacion.Rows.Add();
+                DataGridViewRow row = dataGridViewSimulacion.Rows[idx];
+                row.Cells["NroDia"].Value = dia;
+
+                dia++;
+
+            }
 
         }
     }

@@ -43,12 +43,15 @@ namespace FinalSIM_Ejercicio17
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtVentasPerdidas = new System.Windows.Forms.TextBox();
+            this.NroDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacion)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewSimulacion
             // 
             this.dataGridViewSimulacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewSimulacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NroDia});
             this.dataGridViewSimulacion.Location = new System.Drawing.Point(12, 56);
             this.dataGridViewSimulacion.Name = "dataGridViewSimulacion";
             this.dataGridViewSimulacion.RowTemplate.Height = 25;
@@ -99,6 +102,7 @@ namespace FinalSIM_Ejercicio17
             this.txtTiempoTotalSimulacion.Name = "txtTiempoTotalSimulacion";
             this.txtTiempoTotalSimulacion.Size = new System.Drawing.Size(74, 23);
             this.txtTiempoTotalSimulacion.TabIndex = 6;
+            this.txtTiempoTotalSimulacion.Text = "200";
             // 
             // label1
             // 
@@ -161,6 +165,11 @@ namespace FinalSIM_Ejercicio17
             this.txtVentasPerdidas.Size = new System.Drawing.Size(89, 23);
             this.txtVentasPerdidas.TabIndex = 13;
             // 
+            // NroDia
+            // 
+            this.NroDia.HeaderText = "N° Dia";
+            this.NroDia.Name = "NroDia";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -205,6 +214,7 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtVentasPerdidas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NroDia;
     }
 }
 
