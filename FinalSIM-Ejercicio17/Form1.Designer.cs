@@ -30,6 +30,16 @@ namespace FinalSIM_Ejercicio17
         private void InitializeComponent()
         {
             this.dataGridViewSimulacion = new System.Windows.Forms.DataGridView();
+            this.NroDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RandomDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReembolsoAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidadAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.txtPrecioCompra = new System.Windows.Forms.TextBox();
             this.txtPrecioReembolso = new System.Windows.Forms.TextBox();
@@ -43,9 +53,6 @@ namespace FinalSIM_Ejercicio17
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtVentasPerdidas = new System.Windows.Forms.TextBox();
-            this.NroDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RandomDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,13 +61,70 @@ namespace FinalSIM_Ejercicio17
             this.dataGridViewSimulacion.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSimulacion.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NroDia,
+            this.CantidadOrden,
             this.RandomDemanda,
-            this.Demanda});
+            this.Demanda,
+            this.VentasPerdidas,
+            this.PrecioCompra,
+            this.Reembolso,
+            this.ReembolsoAcumulado,
+            this.CostoUtilidad,
+            this.CostoUtilidadAcumulado});
             this.dataGridViewSimulacion.Location = new System.Drawing.Point(12, 56);
             this.dataGridViewSimulacion.Name = "dataGridViewSimulacion";
             this.dataGridViewSimulacion.RowTemplate.Height = 25;
             this.dataGridViewSimulacion.Size = new System.Drawing.Size(1065, 562);
             this.dataGridViewSimulacion.TabIndex = 0;
+            // 
+            // NroDia
+            // 
+            this.NroDia.HeaderText = "N° Dia";
+            this.NroDia.Name = "NroDia";
+            // 
+            // CantidadOrden
+            // 
+            this.CantidadOrden.HeaderText = "Cantidad de Orden";
+            this.CantidadOrden.Name = "CantidadOrden";
+            // 
+            // RandomDemanda
+            // 
+            this.RandomDemanda.HeaderText = "Random Demanda";
+            this.RandomDemanda.Name = "RandomDemanda";
+            // 
+            // Demanda
+            // 
+            this.Demanda.HeaderText = "Demanda";
+            this.Demanda.Name = "Demanda";
+            // 
+            // VentasPerdidas
+            // 
+            this.VentasPerdidas.HeaderText = "Ventas Perdidas";
+            this.VentasPerdidas.Name = "VentasPerdidas";
+            // 
+            // PrecioCompra
+            // 
+            this.PrecioCompra.HeaderText = "Precio Compra";
+            this.PrecioCompra.Name = "PrecioCompra";
+            // 
+            // Reembolso
+            // 
+            this.Reembolso.HeaderText = "Reembolso";
+            this.Reembolso.Name = "Reembolso";
+            // 
+            // ReembolsoAcumulado
+            // 
+            this.ReembolsoAcumulado.HeaderText = "Reembolso Acumulado";
+            this.ReembolsoAcumulado.Name = "ReembolsoAcumulado";
+            // 
+            // CostoUtilidad
+            // 
+            this.CostoUtilidad.HeaderText = "Costo de Utilidad";
+            this.CostoUtilidad.Name = "CostoUtilidad";
+            // 
+            // CostoUtilidadAcumulado
+            // 
+            this.CostoUtilidadAcumulado.HeaderText = "Costo Utilidad Acumulado";
+            this.CostoUtilidadAcumulado.Name = "CostoUtilidadAcumulado";
             // 
             // button1
             // 
@@ -78,6 +142,7 @@ namespace FinalSIM_Ejercicio17
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(84, 23);
             this.txtPrecioCompra.TabIndex = 2;
+            this.txtPrecioCompra.Text = "0,8";
             // 
             // txtPrecioReembolso
             // 
@@ -85,6 +150,7 @@ namespace FinalSIM_Ejercicio17
             this.txtPrecioReembolso.Name = "txtPrecioReembolso";
             this.txtPrecioReembolso.Size = new System.Drawing.Size(99, 23);
             this.txtPrecioReembolso.TabIndex = 3;
+            this.txtPrecioReembolso.Text = "0,20";
             // 
             // txtCostoUtilidad
             // 
@@ -92,6 +158,7 @@ namespace FinalSIM_Ejercicio17
             this.txtCostoUtilidad.Name = "txtCostoUtilidad";
             this.txtCostoUtilidad.Size = new System.Drawing.Size(81, 23);
             this.txtCostoUtilidad.TabIndex = 4;
+            this.txtCostoUtilidad.Text = "0,4";
             // 
             // txtDemandaAnteriorInicial
             // 
@@ -99,6 +166,7 @@ namespace FinalSIM_Ejercicio17
             this.txtDemandaAnteriorInicial.Name = "txtDemandaAnteriorInicial";
             this.txtDemandaAnteriorInicial.Size = new System.Drawing.Size(102, 23);
             this.txtDemandaAnteriorInicial.TabIndex = 5;
+            this.txtDemandaAnteriorInicial.Text = "20";
             // 
             // txtTiempoTotalSimulacion
             // 
@@ -168,21 +236,7 @@ namespace FinalSIM_Ejercicio17
             this.txtVentasPerdidas.Name = "txtVentasPerdidas";
             this.txtVentasPerdidas.Size = new System.Drawing.Size(89, 23);
             this.txtVentasPerdidas.TabIndex = 13;
-            // 
-            // NroDia
-            // 
-            this.NroDia.HeaderText = "N° Dia";
-            this.NroDia.Name = "NroDia";
-            // 
-            // RandomDemanda
-            // 
-            this.RandomDemanda.HeaderText = "Random Demanda";
-            this.RandomDemanda.Name = "RandomDemanda";
-            // 
-            // Demanda
-            // 
-            this.Demanda.HeaderText = "Demanda";
-            this.Demanda.Name = "Demanda";
+            this.txtVentasPerdidas.Text = "3";
             // 
             // Form1
             // 
@@ -229,8 +283,15 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtVentasPerdidas;
         private System.Windows.Forms.DataGridViewTextBoxColumn NroDia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadOrden;
         private System.Windows.Forms.DataGridViewTextBoxColumn RandomDemanda;
         private System.Windows.Forms.DataGridViewTextBoxColumn Demanda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reembolso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReembolsoAcumulado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidadAcumulado;
     }
 }
 
