@@ -59,6 +59,33 @@ namespace FinalSIM_Ejercicio17
             return demanda;
         }
 
+        public int GetCantidadOrdenPorFrecuencia(double frecuencia)
+        {
+            int demanda = 0;
+
+            if (0 <= frecuencia && frecuencia < 0.25)
+            {
+                demanda = 21;
+            }
+
+            if (0.25 <= frecuencia && frecuencia < 0.5)
+            {
+                demanda = 22;
+            }
+
+            if (0.5 <= frecuencia && frecuencia < 0.75)
+            {
+                demanda = 23;
+            }
+
+            if (0.75 <= frecuencia && frecuencia < 1)
+            {
+                demanda = 24;
+            }
+
+            return demanda;
+        }
+
         private bool ValidarIngresoDatos()
         {
             return true;
@@ -116,29 +143,38 @@ namespace FinalSIM_Ejercicio17
                     row.Cells["Demanda"].Value = demandaAnterior;
                     row.Cells["VentasPerdidas"].Value = ventasPerdidas;
                     //row.Cells["PrecioCompra"].Value = Math.Round(costo, 5);
+                    row.Cells["CostoCompraAcumulado"].Value = 0;
                     row.Cells["Reembolso"].Value = 0;
                     row.Cells["ReembolsoAcumulado"].Value = 0;
                     row.Cells["CostoUtilidad"].Value = 0;
                     row.Cells["CostoUtilidadAcumulado"].Value = 0;
+                    row.Cells["CostoDiarioAcumulado"].Value = 0;
+                    row.Cells["CostoPromedio"].Value = 0;
 
                     dia++;
                     continue;
                 }
 
                 // Se calcula la cantidad a pedir en la orden
-                // POLITICA A:
-
-                // Demanda del dia anterior
                 int nroFilaAnterior = dia - 1;
                 var rowBefore = dataGridViewSimulacion.Rows[nroFilaAnterior];
+                int cantidadAPedir = 0;
+                if (opPoliticaA.Checked)
+                {
+                    // POLITICA A:                
+                    var demandaDiaAnterior = int.Parse(rowBefore.Cells["Demanda"].Value.ToString());
+                    var ventasPerdidasDiaAnterior = int.Parse(rowBefore.Cells["VentasPerdidas"].Value.ToString());
 
-                var demandaDiaAnterior = int.Parse(rowBefore.Cells["Demanda"].Value.ToString());
-                var ventasPerdidasDiaAnterior = int.Parse(rowBefore.Cells["VentasPerdidas"].Value.ToString());
+                    cantidadAPedir = demandaDiaAnterior + ventasPerdidasDiaAnterior;
+                } else
+                {
+                    // POLITICA B:
+                    // La cantidad a pedir puede ser 21 22 23 o 24 
 
-                int cantidadAPedir = demandaDiaAnterior + ventasPerdidasDiaAnterior;
-
-                // POLITICA B:
-                //
+                    // Genero otro random
+                    double rand = random.NextDouble();
+                    cantidadAPedir = GetCantidadOrdenPorFrecuencia(rand);
+                }
 
                 // Se calcula la demanda y las ventas perdidas
                 double rnd = random.NextDouble();
@@ -170,10 +206,21 @@ namespace FinalSIM_Ejercicio17
                 }
 
                 // Acumulado = este + el anterior
+                var costoCompraAcumulado = double.Parse(rowBefore.Cells["CostoCompraAcumulado"].Value.ToString()) + costo;
                 var costoReembolsoAcumulado = double.Parse(rowBefore.Cells["ReembolsoAcumulado"].Value.ToString()) + costoReembolso;
                 var costoUtilidadAcumulado = double.Parse(rowBefore.Cells["CostoUtilidadAcumulado"].Value.ToString()) + costoUtilidadDia;
+                
+
+                var costoDiario = -costo + costoReembolso - costoUtilidadDia;
+                var costoDiarioAcumulado = double.Parse(rowBefore.Cells["CostoDiarioAcumulado"].Value.ToString()) + costoDiario;
 
                 // Se calcula la demanda por día y el costo
+
+                // Costo promedio diario
+                // promedio = (1/n) * [ (n-1) * promedio fila anterior + valor costo diario actual ]
+                var promedioDiaAnterior = double.Parse(rowBefore.Cells["CostoPromedio"].Value.ToString());
+
+                var costoPromedio = (((dia - 1) * promedioDiaAnterior) + costoDiario) / dia;
 
                 // Se agregan los datos a la fila nueva
                 idx = dataGridViewSimulacion.Rows.Add();
@@ -183,11 +230,15 @@ namespace FinalSIM_Ejercicio17
                 row.Cells["RandomDemanda"].Value = Math.Round(rnd, 5);
                 row.Cells["Demanda"].Value = demanda;
                 row.Cells["PrecioCompra"].Value = Math.Round(costo, 5);
+                row.Cells["CostoCompraAcumulado"].Value = Math.Round(costoCompraAcumulado, 5);
                 row.Cells["VentasPerdidas"].Value = ventasPerdidasEnElDia;
-                row.Cells["Reembolso"].Value = costoReembolso;
-                row.Cells["ReembolsoAcumulado"].Value = costoReembolsoAcumulado;
-                row.Cells["CostoUtilidad"].Value = costoUtilidadDia;
-                row.Cells["CostoUtilidadAcumulado"].Value = costoUtilidadAcumulado;
+                row.Cells["Reembolso"].Value = Math.Round(costoReembolso, 5);
+                row.Cells["ReembolsoAcumulado"].Value = Math.Round(costoReembolsoAcumulado, 5);
+                row.Cells["CostoUtilidad"].Value = Math.Round(costoUtilidadDia, 5);
+                row.Cells["CostoUtilidadAcumulado"].Value = Math.Round(costoUtilidadAcumulado, 5);
+                row.Cells["CostoDiario"].Value = Math.Round(costoDiario, 5);
+                row.Cells["CostoDiarioAcumulado"].Value = Math.Round(costoDiarioAcumulado, 5);
+                row.Cells["CostoPromedio"].Value = Math.Round(costoPromedio, 5);
 
                 dia++;
 
