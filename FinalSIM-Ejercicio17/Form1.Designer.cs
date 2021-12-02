@@ -71,11 +71,16 @@ namespace FinalSIM_Ejercicio17
             this.CostoPromedioPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.opPoliticaA = new System.Windows.Forms.RadioButton();
             this.opPoliticaB = new System.Windows.Forms.RadioButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacion)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultados)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewSimulacion
@@ -209,7 +214,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtDemandaAnteriorInicial
             // 
-            this.txtDemandaAnteriorInicial.Location = new System.Drawing.Point(353, 27);
+            this.txtDemandaAnteriorInicial.Location = new System.Drawing.Point(28, 44);
             this.txtDemandaAnteriorInicial.Name = "txtDemandaAnteriorInicial";
             this.txtDemandaAnteriorInicial.Size = new System.Drawing.Size(102, 23);
             this.txtDemandaAnteriorInicial.TabIndex = 5;
@@ -217,7 +222,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtTiempoTotalSimulacion
             // 
-            this.txtTiempoTotalSimulacion.Location = new System.Drawing.Point(872, 24);
+            this.txtTiempoTotalSimulacion.Location = new System.Drawing.Point(1136, 45);
             this.txtTiempoTotalSimulacion.Name = "txtTiempoTotalSimulacion";
             this.txtTiempoTotalSimulacion.Size = new System.Drawing.Size(74, 23);
             this.txtTiempoTotalSimulacion.TabIndex = 6;
@@ -235,7 +240,7 @@ namespace FinalSIM_Ejercicio17
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(353, 9);
+            this.label2.Location = new System.Drawing.Point(28, 26);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(102, 15);
             this.label2.TabIndex = 8;
@@ -244,7 +249,7 @@ namespace FinalSIM_Ejercicio17
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(482, 9);
+            this.label3.Location = new System.Drawing.Point(157, 26);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(89, 15);
             this.label3.TabIndex = 9;
@@ -271,7 +276,7 @@ namespace FinalSIM_Ejercicio17
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(872, 6);
+            this.label6.Location = new System.Drawing.Point(1136, 27);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(74, 15);
             this.label6.TabIndex = 12;
@@ -279,7 +284,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtVentasPerdidas
             // 
-            this.txtVentasPerdidas.Location = new System.Drawing.Point(482, 27);
+            this.txtVentasPerdidas.Location = new System.Drawing.Point(157, 44);
             this.txtVentasPerdidas.Name = "txtVentasPerdidas";
             this.txtVentasPerdidas.Size = new System.Drawing.Size(89, 23);
             this.txtVentasPerdidas.TabIndex = 13;
@@ -297,6 +302,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.progressBar);
             this.tabPage1.Controls.Add(this.dataGridViewSimulacion);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
@@ -380,7 +386,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.opPoliticaA.AutoSize = true;
             this.opPoliticaA.Checked = true;
-            this.opPoliticaA.Location = new System.Drawing.Point(693, 24);
+            this.opPoliticaA.Location = new System.Drawing.Point(27, 29);
             this.opPoliticaA.Name = "opPoliticaA";
             this.opPoliticaA.Size = new System.Drawing.Size(75, 19);
             this.opPoliticaA.TabIndex = 17;
@@ -391,30 +397,57 @@ namespace FinalSIM_Ejercicio17
             // opPoliticaB
             // 
             this.opPoliticaB.AutoSize = true;
-            this.opPoliticaB.Location = new System.Drawing.Point(693, 49);
+            this.opPoliticaB.Location = new System.Drawing.Point(27, 54);
             this.opPoliticaB.Name = "opPoliticaB";
             this.opPoliticaB.Size = new System.Drawing.Size(74, 19);
             this.opPoliticaB.TabIndex = 18;
             this.opPoliticaB.Text = "Politica B";
             this.opPoliticaB.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtDemandaAnteriorInicial);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtVentasPerdidas);
+            this.groupBox1.Location = new System.Drawing.Point(547, 9);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(266, 88);
+            this.groupBox1.TabIndex = 19;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Condiciones Iniciales";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.opPoliticaA);
+            this.groupBox2.Controls.Add(this.opPoliticaB);
+            this.groupBox2.Location = new System.Drawing.Point(967, 9);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(139, 88);
+            this.groupBox2.TabIndex = 20;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Políticas de pedidos";
+            // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(382, 218);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(543, 24);
+            this.progressBar.TabIndex = 1;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1437, 630);
-            this.Controls.Add(this.opPoliticaB);
-            this.Controls.Add(this.opPoliticaA);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.txtVentasPerdidas);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTiempoTotalSimulacion);
-            this.Controls.Add(this.txtDemandaAnteriorInicial);
             this.Controls.Add(this.txtCostoUtilidad);
             this.Controls.Add(this.txtPrecioReembolso);
             this.Controls.Add(this.txtPrecioCompra);
@@ -427,6 +460,10 @@ namespace FinalSIM_Ejercicio17
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultados)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -476,6 +513,9 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioReembolsoPolitica;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidadPolitica;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoPromedioPolitica;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 

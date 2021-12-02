@@ -101,6 +101,17 @@ namespace FinalSIM_Ejercicio17
                 return;
             }
 
+            dataGridViewSimulacion.Visible = false;
+            progressBar.Visible = true;
+
+            progressBar.Minimum = 1;
+            // Set Maximum to the total number of files to copy.
+            
+            // Set the initial value of the ProgressBar.
+            progressBar.Value = 1;
+            // Set the Step property to a value of 1 to represent each file being copied.
+            progressBar.Step = 1;
+
             // Limpiar tablas
             dataGridViewSimulacion.Rows.Clear();
 
@@ -115,6 +126,8 @@ namespace FinalSIM_Ejercicio17
             int ventasPerdidas = int.Parse(txtVentasPerdidas.Text.ToString());
 
             int diasTiempoTotal = int.Parse(txtTiempoTotalSimulacion.Text.ToString());
+
+            progressBar.Maximum = diasTiempoTotal;
 
             int dia = 0;
 
@@ -244,6 +257,8 @@ namespace FinalSIM_Ejercicio17
 
                 dia++;
 
+                progressBar.PerformStep();
+
             }
 
             // Agrego los resultados a la tabla
@@ -260,7 +275,8 @@ namespace FinalSIM_Ejercicio17
 
             fila.Cells["CostoPromedioPolitica"].Value = costoPromedio;
 
-
+            progressBar.Visible = false ;
+            dataGridViewSimulacion.Visible = true;
         }
     }
 }
