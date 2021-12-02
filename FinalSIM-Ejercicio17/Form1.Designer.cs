@@ -57,15 +57,25 @@ namespace FinalSIM_Ejercicio17
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtVentasPerdidas = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.dataGridViewResultados = new System.Windows.Forms.DataGridView();
+            this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Politica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadDias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompraPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioReembolsoPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidadPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoPromedioPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.opPoliticaA = new System.Windows.Forms.RadioButton();
             this.opPoliticaB = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacion)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultados)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewSimulacion
@@ -165,9 +175,9 @@ namespace FinalSIM_Ejercicio17
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1312, 38);
+            this.button1.Location = new System.Drawing.Point(1257, 38);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(109, 35);
+            this.button1.Size = new System.Drawing.Size(161, 35);
             this.button1.TabIndex = 1;
             this.button1.Text = "Iniciar Simulacion";
             this.button1.UseVisualStyleBackColor = true;
@@ -275,15 +285,6 @@ namespace FinalSIM_Ejercicio17
             this.txtVentasPerdidas.TabIndex = 13;
             this.txtVentasPerdidas.Text = "3";
             // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(690, 9);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(46, 15);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Política";
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
@@ -302,23 +303,84 @@ namespace FinalSIM_Ejercicio17
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1405, 511);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Simulacion";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.dataGridViewResultados);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(1405, 511);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Resultados";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridViewResultados
+            // 
+            this.dataGridViewResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.N,
+            this.FechaHora,
+            this.Politica,
+            this.CantidadDias,
+            this.PrecioCompraPolitica,
+            this.PrecioReembolsoPolitica,
+            this.CostoUtilidadPolitica,
+            this.CostoPromedioPolitica});
+            this.dataGridViewResultados.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewResultados.Location = new System.Drawing.Point(3, 3);
+            this.dataGridViewResultados.Name = "dataGridViewResultados";
+            this.dataGridViewResultados.RowTemplate.Height = 25;
+            this.dataGridViewResultados.Size = new System.Drawing.Size(1399, 505);
+            this.dataGridViewResultados.TabIndex = 0;
+            // 
+            // N
+            // 
+            this.N.HeaderText = "N";
+            this.N.Name = "N";
+            // 
+            // FechaHora
+            // 
+            this.FechaHora.HeaderText = "Fecha y hora";
+            this.FechaHora.Name = "FechaHora";
+            // 
+            // Politica
+            // 
+            this.Politica.HeaderText = "Politica";
+            this.Politica.Name = "Politica";
+            // 
+            // CantidadDias
+            // 
+            this.CantidadDias.HeaderText = "Cantidad de Dias";
+            this.CantidadDias.Name = "CantidadDias";
+            // 
+            // PrecioCompraPolitica
+            // 
+            this.PrecioCompraPolitica.HeaderText = "Precio de Compra";
+            this.PrecioCompraPolitica.Name = "PrecioCompraPolitica";
+            // 
+            // PrecioReembolsoPolitica
+            // 
+            this.PrecioReembolsoPolitica.HeaderText = "Precio de Reembolso";
+            this.PrecioReembolsoPolitica.Name = "PrecioReembolsoPolitica";
+            // 
+            // CostoUtilidadPolitica
+            // 
+            this.CostoUtilidadPolitica.HeaderText = "Costo de Utilidad";
+            this.CostoUtilidadPolitica.Name = "CostoUtilidadPolitica";
+            // 
+            // CostoPromedioPolitica
+            // 
+            this.CostoPromedioPolitica.HeaderText = "Costo Promedio";
+            this.CostoPromedioPolitica.Name = "CostoPromedioPolitica";
             // 
             // opPoliticaA
             // 
             this.opPoliticaA.AutoSize = true;
-            this.opPoliticaA.Location = new System.Drawing.Point(674, 29);
+            this.opPoliticaA.Checked = true;
+            this.opPoliticaA.Location = new System.Drawing.Point(693, 24);
             this.opPoliticaA.Name = "opPoliticaA";
             this.opPoliticaA.Size = new System.Drawing.Size(75, 19);
             this.opPoliticaA.TabIndex = 17;
@@ -329,11 +391,10 @@ namespace FinalSIM_Ejercicio17
             // opPoliticaB
             // 
             this.opPoliticaB.AutoSize = true;
-            this.opPoliticaB.Location = new System.Drawing.Point(674, 54);
+            this.opPoliticaB.Location = new System.Drawing.Point(693, 49);
             this.opPoliticaB.Name = "opPoliticaB";
             this.opPoliticaB.Size = new System.Drawing.Size(74, 19);
             this.opPoliticaB.TabIndex = 18;
-            this.opPoliticaB.TabStop = true;
             this.opPoliticaB.Text = "Politica B";
             this.opPoliticaB.UseVisualStyleBackColor = true;
             // 
@@ -345,7 +406,6 @@ namespace FinalSIM_Ejercicio17
             this.Controls.Add(this.opPoliticaB);
             this.Controls.Add(this.opPoliticaA);
             this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.txtVentasPerdidas);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -365,6 +425,8 @@ namespace FinalSIM_Ejercicio17
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacion)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewResultados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,12 +462,20 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoDiario;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoDiarioAcumulado;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoPromedio;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.RadioButton opPoliticaA;
         private System.Windows.Forms.RadioButton opPoliticaB;
+        private System.Windows.Forms.DataGridView dataGridViewResultados;
+        private System.Windows.Forms.DataGridViewTextBoxColumn N;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaHora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Politica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadDias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompraPolitica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioReembolsoPolitica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidadPolitica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoPromedioPolitica;
     }
 }
 

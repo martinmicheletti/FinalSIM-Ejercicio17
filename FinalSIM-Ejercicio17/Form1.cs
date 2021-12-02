@@ -123,7 +123,9 @@ namespace FinalSIM_Ejercicio17
             // Mas de 2 minutos con 30 segundos los 200.000 dias con for
 
             int idx = 0;
-            DataGridViewRow row = new DataGridViewRow();   
+            DataGridViewRow row = new DataGridViewRow();
+            double costoPromedio = 0;
+            double costo = 0;
 
             while (dia < diasTiempoTotal)
             {
@@ -181,7 +183,7 @@ namespace FinalSIM_Ejercicio17
 
                 double demanda = GetDemandaPorFrecuencia(rnd);
 
-                double costo = precioCompra * demanda;
+                costo = precioCompra * demanda;
 
                 // demanda por frecuencia
 
@@ -220,7 +222,7 @@ namespace FinalSIM_Ejercicio17
                 // promedio = (1/n) * [ (n-1) * promedio fila anterior + valor costo diario actual ]
                 var promedioDiaAnterior = double.Parse(rowBefore.Cells["CostoPromedio"].Value.ToString());
 
-                var costoPromedio = (((dia - 1) * promedioDiaAnterior) + costoDiario) / dia;
+                costoPromedio = (((dia - 1) * promedioDiaAnterior) + costoDiario) / dia;
 
                 // Se agregan los datos a la fila nueva
                 idx = dataGridViewSimulacion.Rows.Add();
@@ -244,6 +246,19 @@ namespace FinalSIM_Ejercicio17
 
             }
 
+            // Agrego los resultados a la tabla
+            int n = dataGridViewResultados.Rows.Add();
+            var fila = dataGridViewResultados.Rows[n];
+            fila.Cells["N"].Value = n+1;
+            fila.Cells["FechaHora"].Value = DateTime.Now;
+            fila.Cells["Politica"].Value = opPoliticaA.Checked ? "Politica A" : "Politica B";
+            fila.Cells["CantidadDias"].Value = diasTiempoTotal;
+            
+            fila.Cells["PrecioCompraPolitica"].Value = precioCompra;
+            fila.Cells["PrecioReembolsoPolitica"].Value = precioReembolso;
+            fila.Cells["CostoUtilidadPolitica"].Value = costoUtilidad;
+
+            fila.Cells["CostoPromedioPolitica"].Value = costoPromedio;
 
 
         }
