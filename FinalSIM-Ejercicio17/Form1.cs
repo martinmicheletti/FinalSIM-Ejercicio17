@@ -22,72 +22,20 @@ namespace FinalSIM_Ejercicio17
 
         }
 
-        public double GetDemandaPorFrecuencia(double frecuencia)
-        {
-            int demanda = 0;
-
-            if (0 <= frecuencia && frecuencia < 0.30)
-            {
-                demanda = 20;
-            }
-
-            if (0.30 <= frecuencia && frecuencia < 0.55)
-            {
-                demanda = 21;
-            }
-
-            if (0.55 <= frecuencia && frecuencia < 0.75)
-            {
-                demanda = 22;
-            }
-
-            if (0.75 <= frecuencia && frecuencia < 0.80)
-            {
-                demanda = 23;
-            }
-
-            if (0.80 <= frecuencia && frecuencia < 0.90)
-            {
-                demanda = 24;
-            }
-
-            if (0.90 <= frecuencia && frecuencia < 1)
-            {
-                demanda = 25;
-            }
-
-            return demanda;
-        }
-
-        public int GetCantidadOrdenPorFrecuencia(double frecuencia)
-        {
-            int demanda = 0;
-
-            if (0 <= frecuencia && frecuencia < 0.25)
-            {
-                demanda = 21;
-            }
-
-            if (0.25 <= frecuencia && frecuencia < 0.5)
-            {
-                demanda = 22;
-            }
-
-            if (0.5 <= frecuencia && frecuencia < 0.75)
-            {
-                demanda = 23;
-            }
-
-            if (0.75 <= frecuencia && frecuencia < 1)
-            {
-                demanda = 24;
-            }
-
-            return demanda;
-        }
-
         private bool ValidarIngresoDatos()
         {
+            if (txtPrecioCompra.Text.ToString() == "" ||
+                txtPrecioReembolso.Text.ToString() == "" ||
+                txtCostoUtilidad.Text.ToString() == "" ||
+                txtDemandaAnteriorInicial.Text.ToString() == "" ||
+                txtVentasPerdidas.Text.ToString() == "" ||
+                txtTiempoTotalSimulacion.Text.ToString() == "" ||
+                txtDesde.Text.ToString() == "" ||
+                txtDiasAMostrar.Text.ToString() == "")
+            {
+                return false;
+            }
+
             return true;
         }
 
@@ -97,11 +45,14 @@ namespace FinalSIM_Ejercicio17
 
             if (!puedeIniciar)
             {
-                MessageBox.Show("Por favor, verifique el ingreso de todos los datos");
+                MessageBox.Show("Por favor, verifique el ingreso de todos los datos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            dataGridViewSimulacion.Visible = false;
+            tabControl.Visible = false;
+            //dataGridViewSimulacion.Visible = false;
+            //dataGridViewGrilla.Visible = false;
+
             progressBar.Visible = true;
 
             progressBar.Minimum = 1;
@@ -114,6 +65,7 @@ namespace FinalSIM_Ejercicio17
 
             // Limpiar tablas
             dataGridViewSimulacion.Rows.Clear();
+            dataGridViewGrilla.Rows.Clear();
 
             Random random = new Random();
 
@@ -126,6 +78,10 @@ namespace FinalSIM_Ejercicio17
             int ventasPerdidas = int.Parse(txtVentasPerdidas.Text.ToString());
 
             int diasTiempoTotal = int.Parse(txtTiempoTotalSimulacion.Text.ToString());
+
+            int desde = int.Parse(txtDesde.Text.ToString());
+            int diasAMostrar = int.Parse(txtDiasAMostrar.Text.ToString());
+            int hasta = desde + diasAMostrar;
 
             progressBar.Maximum = diasTiempoTotal;
 
@@ -166,6 +122,27 @@ namespace FinalSIM_Ejercicio17
                     row.Cells["CostoDiarioAcumulado"].Value = 0;
                     row.Cells["CostoPromedio"].Value = 0;
 
+                    if (desde <= dia)
+                    {
+                        // Se agregan los datos a la fila nueva en la Grilla
+                        var nr = dataGridViewGrilla.Rows.Add();
+                        var rowGrilla = dataGridViewGrilla.Rows[nr];
+                        rowGrilla.Cells["NDiaGrilla"].Value = dia;
+                        //rowGrilla.Cells["CantidadOrdenGrilla"].Value = cantidadAPedir;
+                        //rowGrilla.Cells["RandomDemandaGrilla"].Value = Math.Round(rnd, 5);
+                        rowGrilla.Cells["DemandaGrilla"].Value = demandaAnterior;
+                        //rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5);
+                        rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = 0;
+                        rowGrilla.Cells["VentasPerdidasGrilla"].Value = ventasPerdidas;
+                        rowGrilla.Cells["ReembolsoGrilla"].Value = 0;
+                        rowGrilla.Cells["ReembolsoAcumuladoGrilla"].Value = 0;
+                        rowGrilla.Cells["CostoUtilidadGrilla"].Value = 0;
+                        rowGrilla.Cells["CostoUtilidadAcumuladoGrilla"].Value = 0;
+                        rowGrilla.Cells["CostoDiarioGrilla"].Value = 0;
+                        rowGrilla.Cells["CostoDiarioAcumuladoGrilla"].Value = 0;
+                        rowGrilla.Cells["CostoPromedioGrilla"].Value = 0;
+                    }
+
                     dia++;
                     continue;
                 }
@@ -188,7 +165,20 @@ namespace FinalSIM_Ejercicio17
 
                     // Genero otro random
                     double rand = random.NextDouble();
-                    cantidadAPedir = GetCantidadOrdenPorFrecuencia(rand);
+
+                    if (opNormal.Checked)
+                    {
+                        cantidadAPedir = (int)GenerarNumeroDistNormal((decimal)22.5, (decimal)1.118033);
+                    }
+                    if (opUniforme.Checked)
+                    {
+                        cantidadAPedir = (int)GenerarNumeroDistUniforme(21, 24);
+                    }
+                    if (opExponencial.Checked)
+                    {
+                        cantidadAPedir = (int)GenerarNumeroDistExponencial((decimal)22.5);
+                    }
+                    //cantidadAPedir = GetCantidadOrdenPorFrecuencia(rand);
                 }
 
                 // Se calcula la demanda y las ventas perdidas
@@ -255,13 +245,57 @@ namespace FinalSIM_Ejercicio17
                 row.Cells["CostoDiarioAcumulado"].Value = Math.Round(costoDiarioAcumulado, 5);
                 row.Cells["CostoPromedio"].Value = Math.Round(costoPromedio, 5);
 
+
+
+                if (desde <= dia && dia <= hasta )
+                {
+                    // Se agregan los datos a la fila nueva en la Grilla
+                    var nr = dataGridViewGrilla.Rows.Add();
+                    var rowGrilla = dataGridViewGrilla.Rows[nr];
+                    rowGrilla.Cells["NDiaGrilla"].Value = dia;
+                    rowGrilla.Cells["CantidadOrdenGrilla"].Value = cantidadAPedir;
+                    rowGrilla.Cells["RandomDemandaGrilla"].Value = Math.Round(rnd, 5);
+                    rowGrilla.Cells["DemandaGrilla"].Value = demanda;
+                    rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5);
+                    rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = Math.Round(costoCompraAcumulado, 5);
+                    rowGrilla.Cells["VentasPerdidasGrilla"].Value = ventasPerdidasEnElDia;
+                    rowGrilla.Cells["ReembolsoGrilla"].Value = Math.Round(costoReembolso, 5);
+                    rowGrilla.Cells["ReembolsoAcumuladoGrilla"].Value = Math.Round(costoReembolsoAcumulado, 5);
+                    rowGrilla.Cells["CostoUtilidadGrilla"].Value = Math.Round(costoUtilidadDia, 5);
+                    rowGrilla.Cells["CostoUtilidadAcumuladoGrilla"].Value = Math.Round(costoUtilidadAcumulado, 5);
+                    rowGrilla.Cells["CostoDiarioGrilla"].Value = Math.Round(costoDiario, 5);
+                    rowGrilla.Cells["CostoDiarioAcumuladoGrilla"].Value = Math.Round(costoDiarioAcumulado, 5);
+                    rowGrilla.Cells["CostoPromedioGrilla"].Value = Math.Round(costoPromedio, 5);
+                }
+
+                if (dia+1 == diasTiempoTotal && !(hasta >= diasTiempoTotal) )
+                {
+                    // Agrego el ultimo dia a la tabla
+                    var nr = dataGridViewGrilla.Rows.Add();
+                    var rowGrilla = dataGridViewGrilla.Rows[nr];
+                    rowGrilla.Cells["NDiaGrilla"].Value = dia;
+                    rowGrilla.Cells["CantidadOrdenGrilla"].Value = cantidadAPedir;
+                    rowGrilla.Cells["RandomDemandaGrilla"].Value = Math.Round(rnd, 5);
+                    rowGrilla.Cells["DemandaGrilla"].Value = demanda;
+                    rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5);
+                    rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = Math.Round(costoCompraAcumulado, 5);
+                    rowGrilla.Cells["VentasPerdidasGrilla"].Value = ventasPerdidasEnElDia;
+                    rowGrilla.Cells["ReembolsoGrilla"].Value = Math.Round(costoReembolso, 5);
+                    rowGrilla.Cells["ReembolsoAcumuladoGrilla"].Value = Math.Round(costoReembolsoAcumulado, 5);
+                    rowGrilla.Cells["CostoUtilidadGrilla"].Value = Math.Round(costoUtilidadDia, 5);
+                    rowGrilla.Cells["CostoUtilidadAcumuladoGrilla"].Value = Math.Round(costoUtilidadAcumulado, 5);
+                    rowGrilla.Cells["CostoDiarioGrilla"].Value = Math.Round(costoDiario, 5);
+                    rowGrilla.Cells["CostoDiarioAcumuladoGrilla"].Value = Math.Round(costoDiarioAcumulado, 5);
+                    rowGrilla.Cells["CostoPromedioGrilla"].Value = Math.Round(costoPromedio, 5);
+                }
+
                 dia++;
 
                 progressBar.PerformStep();
 
             }
 
-            // Agrego los resultados a la tabla
+            // Agrego los resultados a la tabla de Resultados
             int n = dataGridViewResultados.Rows.Add();
             var fila = dataGridViewResultados.Rows[n];
             fila.Cells["N"].Value = n+1;
@@ -276,7 +310,150 @@ namespace FinalSIM_Ejercicio17
             fila.Cells["CostoPromedioPolitica"].Value = costoPromedio;
 
             progressBar.Visible = false ;
-            dataGridViewSimulacion.Visible = true;
+            //dataGridViewSimulacion.Visible = true;
+            //dataGridViewGrilla.Visible = true;
+            tabControl.Visible = true;
+        }
+
+        public double GetDemandaPorFrecuencia(double frecuencia)
+        {
+            int demanda = 0;
+
+            if (0 <= frecuencia && frecuencia < 0.30)
+            {
+                demanda = 20;
+            }
+
+            if (0.30 <= frecuencia && frecuencia < 0.55)
+            {
+                demanda = 21;
+            }
+
+            if (0.55 <= frecuencia && frecuencia < 0.75)
+            {
+                demanda = 22;
+            }
+
+            if (0.75 <= frecuencia && frecuencia < 0.80)
+            {
+                demanda = 23;
+            }
+
+            if (0.80 <= frecuencia && frecuencia < 0.90)
+            {
+                demanda = 24;
+            }
+
+            if (0.90 <= frecuencia && frecuencia < 1)
+            {
+                demanda = 25;
+            }
+
+            return demanda;
+        }
+
+        public int GetCantidadOrdenPorFrecuencia(double frecuencia)
+        {
+            int demanda = 0;
+
+            if (0 <= frecuencia && frecuencia < 0.25)
+            {
+                demanda = 21;
+            }
+
+            if (0.25 <= frecuencia && frecuencia < 0.5)
+            {
+                demanda = 22;
+            }
+
+            if (0.5 <= frecuencia && frecuencia < 0.75)
+            {
+                demanda = 23;
+            }
+
+            if (0.75 <= frecuencia && frecuencia < 1)
+            {
+                demanda = 24;
+            }
+
+            return demanda;
+        }
+
+        public Decimal GenerarNumeroDistUniforme(Decimal a, Decimal b)
+        {
+            Random rnd = new Random();
+            Decimal nro = Convert.ToDecimal(rnd.NextDouble());
+            Decimal nroAleat = a + (nro * (b - a));                
+            return nroAleat;
+        }
+
+        public Decimal GenerarNumeroDistNormal(Decimal media, Decimal desviacion)
+        {
+            //Método de convolución
+            Random rnd = new Random();
+            Decimal suma = 0;
+            for (int j = 0; j < 12; j++)
+            {
+                Decimal aleat = Convert.ToDecimal(rnd.NextDouble());
+                suma = suma + aleat;
+            }
+            Decimal z = ((suma - 6) * desviacion) + media;        
+            return z;
+        }
+
+
+        public Decimal GenerarNumeroDistExponencial(Decimal media)
+        {
+            Random rnd = new Random();
+            Decimal nro = Convert.ToDecimal(rnd.NextDouble());
+            Decimal lambda = 1 / media;
+            Decimal log = Convert.ToDecimal(Math.Log(Convert.ToDouble(1 - nro)));
+            Decimal nroAleat = (-1 / lambda) * log;
+            return nroAleat;
+        }
+
+        public Decimal GenerarNumeroDistPoisson(Decimal lambda)
+        {    
+            Random rnd = new Random();           
+            Double a = Math.Pow((Math.E), Convert.ToDouble(-lambda));
+            Double b = 1;
+            Decimal i = -1;
+            do
+            {
+                Double xi = rnd.NextDouble();
+                b = b * xi;
+                i = i + 1;
+
+            } while (b > a);
+                
+            return i;
+        }
+
+        private void opPoliticaB_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!opPoliticaB.Checked)
+            {
+                groupBoxDistribucion.Visible = false;
+                return;
+            }
+
+            groupBoxDistribucion.Visible = true;
+        }
+
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != ','))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == ',') && ((sender as TextBox).Text.IndexOf(',') > -1))
+            {
+                e.Handled = true;
+            }
         }
     }
+
 }
