@@ -1,7 +1,7 @@
 **Simulación - UTN - FRC - 2021**
 
-**Ejercicio 17**
-#Trabajo Práctico de Examen Final - 09/12/2021
+__Ejercicio 17__
+# Trabajo Práctico de Examen Final - 09/12/2021
 
 Alumno: 
 - 70120 -  Micheletti, Martín
