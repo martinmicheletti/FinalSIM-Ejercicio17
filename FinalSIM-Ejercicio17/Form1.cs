@@ -279,7 +279,8 @@ namespace FinalSIM_Ejercicio17
                     demandaDiaAnterior = double.Parse(rowBefore.Cells["Demanda"].Value.ToString());
                     ventasPerdidasDiaAnterior = double.Parse(rowBefore.Cells["VentasPerdidas"].Value.ToString());
 
-                    cantidadAPedir = demandaDiaAnterior + ventasPerdidasDiaAnterior;
+                    //cantidadAPedir = demandaDiaAnterior + ventasPerdidasDiaAnterior;
+                    cantidadAPedir = demandaDiaAnterior;
                 } else
                 {
                     // POLITICA B:
@@ -368,11 +369,14 @@ namespace FinalSIM_Ejercicio17
                 {
                     // Si la cantidad es positiva, tengo que devolver periodicos
                     //ventasPerdidasReembolso+=Math.Abs(ventasPerdidasEnElDia);
+
                     ventasRealizadas = demanda;
                     ventasPerdidasReembolso = double.Parse(rowBefore.Cells["VentasPerdidasReembolso"].Value.ToString()) + Math.Abs(ventasPerdidasEnElDia);
 
                     // el costo reembolso, es positivo ya que es un ingreso
                     costoReembolso = precioReembolso * Math.Abs(ventasPerdidasEnElDia);
+
+                    ventasPerdidasEnElDia = 0;
                 }
                 if (ventasPerdidasEnElDia < 0)
                 {
