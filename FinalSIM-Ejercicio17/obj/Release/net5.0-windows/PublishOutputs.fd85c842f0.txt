@@ -1,0 +1,5 @@
+C:\Users\Martin\Documents\GitHub\FinalSIM-Ejercicio17\FinalSIM-Ejercicio17\bin\Release\net5.0-windows\publish\FinalSIM-Ejercicio17.exe
+C:\Users\Martin\Documents\GitHub\FinalSIM-Ejercicio17\FinalSIM-Ejercicio17\bin\Release\net5.0-windows\publish\FinalSIM-Ejercicio17.dll
+C:\Users\Martin\Documents\GitHub\FinalSIM-Ejercicio17\FinalSIM-Ejercicio17\bin\Release\net5.0-windows\publish\FinalSIM-Ejercicio17.deps.json
+C:\Users\Martin\Documents\GitHub\FinalSIM-Ejercicio17\FinalSIM-Ejercicio17\bin\Release\net5.0-windows\publish\FinalSIM-Ejercicio17.runtimeconfig.json
+C:\Users\Martin\Documents\GitHub\FinalSIM-Ejercicio17\FinalSIM-Ejercicio17\bin\Release\net5.0-windows\publish\FinalSIM-Ejercicio17.pdb
