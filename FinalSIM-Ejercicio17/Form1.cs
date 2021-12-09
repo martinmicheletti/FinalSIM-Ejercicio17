@@ -130,6 +130,9 @@ namespace FinalSIM_Ejercicio17
             double ventasPerdidasReembolso = 0;
             double ventasPerdidasUtilidad = 0;
 
+            double ventasRealizadas = 0;
+            double ventasRealizadasAcumulado = 0;
+
             double costoCompraAcumulado = 0;
             double costoReembolsoAcumulado = 0;
             double costoUtilidadAcumulado = 0;
@@ -156,7 +159,9 @@ namespace FinalSIM_Ejercicio17
                     //row.Cells["CantidadOrden"].Value = cantidadAPedir;
                     //row.Cells["RandomDemanda"].Value = Math.Round(rnd, 5);
                     row.Cells["Demanda"].Value = demandaAnterior;
-                    
+                    row.Cells["VentasRealizadas"].Value = ventasRealizadas;
+                    row.Cells["VentasRealizadasAcumulado"].Value = ventasRealizadasAcumulado;
+
                     row.Cells["VentasPerdidas"].Value = ventasPerdidas;
 
 
@@ -245,6 +250,8 @@ namespace FinalSIM_Ejercicio17
                         //rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5);
                         rowGrilla.Cells["CantidadOrdenAcumGrilla"].Value = 0;
                         rowGrilla.Cells["DemandaAcumGrilla"].Value = 0;
+                        row.Cells["VentasRealizadas"].Value = ventasRealizadas;
+                        row.Cells["VentasRealizadasAcumulado"].Value = ventasRealizadasAcumulado;
                         rowGrilla.Cells["VentasPerdidasReembolsoGrilla"].Value = 0;
                         rowGrilla.Cells["VentasPerdidasUtilidadGrilla"].Value = 0;
                         rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = 0;
@@ -355,11 +362,13 @@ namespace FinalSIM_Ejercicio17
                 costoReembolso = 0;
                 costoUtilidadDia = 0;
 
+                
+
                 if (ventasPerdidasEnElDia > 0)
                 {
                     // Si la cantidad es positiva, tengo que devolver periodicos
                     //ventasPerdidasReembolso+=Math.Abs(ventasPerdidasEnElDia);
-
+                    ventasRealizadas = demanda;
                     ventasPerdidasReembolso = double.Parse(rowBefore.Cells["VentasPerdidasReembolso"].Value.ToString()) + Math.Abs(ventasPerdidasEnElDia);
 
                     // el costo reembolso, es positivo ya que es un ingreso
@@ -367,6 +376,7 @@ namespace FinalSIM_Ejercicio17
                 }
                 if (ventasPerdidasEnElDia < 0)
                 {
+                    ventasRealizadas = cantidadAPedir;
                     // Si es negativa, tengo costo de utilidad (costo de oportunidad)
                     // el costo de utilidad es negativo, ya que es perdida
                     //ventasPerdidasUtilidad+= Math.Abs(ventasPerdidasEnElDia);
@@ -376,6 +386,7 @@ namespace FinalSIM_Ejercicio17
                 }
                 if (ventasPerdidasEnElDia == 0)
                 {
+                    ventasRealizadas = demanda;
                     // Si es cero, no tengo costo 
                 }
 
@@ -392,6 +403,8 @@ namespace FinalSIM_Ejercicio17
                 costoDiario = costo + costoReembolso + costoUtilidadDia;
                 costoDiarioAcumulado = double.Parse(rowBefore.Cells["CostoDiarioAcumulado"].Value.ToString().Replace("$ ", "")) + costoDiario;
 
+                ventasRealizadasAcumulado = double.Parse(rowBefore.Cells["VentasRealizadasAcumulado"].Value.ToString().Replace("$ ", "")) + ventasRealizadas;
+
                 // Costo promedio diario
                 // promedio = (1/n) * [ (n-1) * promedio fila anterior + valor costo diario actual ]
                 promedioDiaAnterior = double.Parse(rowBefore.Cells["CostoPromedio"].Value.ToString().Replace("$ ", ""));
@@ -407,6 +420,8 @@ namespace FinalSIM_Ejercicio17
                 row.Cells["RandomDemanda"].Value = Math.Round(randomDemanda, 5);
                 row.Cells["Demanda"].Value = demanda;
                 row.Cells["DemandaAcumulada"].Value = demandaAcumulada;
+                row.Cells["VentasRealizadas"].Value = ventasRealizadas;
+                row.Cells["VentasRealizadasAcumulado"].Value = ventasRealizadasAcumulado;
                 row.Cells["PrecioCompra"].Value = Math.Round(costo, 5).ToString("C", CultureInfo.CurrentCulture);
                 row.Cells["CostoCompraAcumulado"].Value = Math.Round(costoCompraAcumulado, 5).ToString("C", CultureInfo.CurrentCulture);
                 row.Cells["VentasPerdidas"].Value = Math.Abs(ventasPerdidasEnElDia);
@@ -432,6 +447,8 @@ namespace FinalSIM_Ejercicio17
                     rowGrilla.Cells["RandomDemandaGrilla"].Value = Math.Round(randomDemanda, 5);
                     rowGrilla.Cells["DemandaGrilla"].Value = demanda;
                     rowGrilla.Cells["DemandaAcumGrilla"].Value = demandaAcumulada;
+                    rowGrilla.Cells["VentasRealizadasGrilla"].Value = ventasRealizadas;
+                    rowGrilla.Cells["VentasRealizadasAcumuladoGrilla"].Value = ventasRealizadasAcumulado;
                     rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5).ToString("C", CultureInfo.CurrentCulture); ;
                     rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = Math.Round(costoCompraAcumulado, 5).ToString("C", CultureInfo.CurrentCulture); ;
                     rowGrilla.Cells["VentasPerdidasGrilla"].Value = Math.Abs(ventasPerdidasEnElDia);
@@ -458,6 +475,8 @@ namespace FinalSIM_Ejercicio17
                     rowGrilla.Cells["RandomDemandaGrilla"].Value = Math.Round(randomDemanda, 5);
                     rowGrilla.Cells["DemandaGrilla"].Value = demanda;
                     rowGrilla.Cells["DemandaAcumGrilla"].Value = demandaAcumulada;
+                    rowGrilla.Cells["VentasRealizadasGrilla"].Value = ventasRealizadas;
+                    rowGrilla.Cells["VentasRealizadasAcumuladoGrilla"].Value = ventasRealizadasAcumulado;
                     rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5).ToString("C", CultureInfo.CurrentCulture);
                     rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = Math.Round(costoCompraAcumulado, 5).ToString("C", CultureInfo.CurrentCulture); ;
                     rowGrilla.Cells["VentasPerdidasGrilla"].Value = Math.Abs(ventasPerdidasEnElDia);
@@ -493,6 +512,8 @@ namespace FinalSIM_Ejercicio17
 
             fila.Cells["DemandaInicialPolitica"].Value = demandaAnterior;
             fila.Cells["VentasPerdidasInicialPolitica"].Value = ventasPerdidas;
+
+            fila.Cells["VentasRealizadasTotales"].Value = ventasRealizadasAcumulado;
 
             fila.Cells["VentasTotalesPerdidasReembolso"].Value = ventasPerdidasReembolso;
             fila.Cells["VentasTotalesPerdidasUtilidad"].Value = ventasPerdidasUtilidad;

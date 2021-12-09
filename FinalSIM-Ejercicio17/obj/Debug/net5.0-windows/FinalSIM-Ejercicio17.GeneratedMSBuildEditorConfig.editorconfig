@@ -6,3 +6,5 @@ build_property.ProjectTypeGuids =
 build_property.PublishSingleFile = 
 build_property.IncludeAllContentForSelfExtract = 
 build_property._SupportedPlatformList = Android,iOS,Linux,macOS,Windows
+build_property.RootNamespace = FinalSIM_Ejercicio17
+build_property.ProjectDir = C:\Users\Martin\Documents\GitHub\FinalSIM-Ejercicio17\FinalSIM-Ejercicio17\

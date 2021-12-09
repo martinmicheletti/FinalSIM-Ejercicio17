@@ -31,6 +31,27 @@ namespace FinalSIM_Ejercicio17
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridViewSimulacion = new System.Windows.Forms.DataGridView();
+            this.NroDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RandomCantidadOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadOrdenAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RandomDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DemandaAcumulada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasRealizadas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasRealizadasAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasReembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoCompraAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReembolsoAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidadAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoDiario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoDiarioAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoPromedio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.txtPrecioCompra = new System.Windows.Forms.TextBox();
             this.txtPrecioReembolso = new System.Windows.Forms.TextBox();
@@ -47,6 +68,27 @@ namespace FinalSIM_Ejercicio17
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewGrilla = new System.Windows.Forms.DataGridView();
+            this.NDiaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RandomCantidadOrdenGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadOrdenGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadOrdenAcumGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RandomDemandaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DemandaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DemandaAcumGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasRealizadasGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasRealizadasAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasReembolsoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasUtilidadGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompraGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoCompraAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReembolsoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReembolsoAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidadGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidadAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoDiarioGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoDiarioAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoPromedioGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewResultados = new System.Windows.Forms.DataGridView();
@@ -89,44 +131,6 @@ namespace FinalSIM_Ejercicio17
             this.button3 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.NDiaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RandomCantidadOrdenGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadOrdenGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadOrdenAcumGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RandomDemandaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DemandaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DemandaAcumGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasReembolsoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasUtilidadGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioCompraGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoCompraAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReembolsoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReembolsoAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoUtilidadGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoUtilidadAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoDiarioGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoDiarioAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoPromedioGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NroDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RandomCantidadOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadOrdenAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RandomDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DemandaAcumulada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasReembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoCompraAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReembolsoAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoUtilidadAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoDiario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoDiarioAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoPromedio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FechaHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CantidadDias = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,6 +142,7 @@ namespace FinalSIM_Ejercicio17
             this.CostoUtilidadPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioReembolsoPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.OrdenesTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasRealizadasTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DemandaTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VentasTotalesPerdidasReembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VentasTotalesPerdidasUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -172,6 +177,8 @@ namespace FinalSIM_Ejercicio17
             this.RandomDemanda,
             this.Demanda,
             this.DemandaAcumulada,
+            this.VentasRealizadas,
+            this.VentasRealizadasAcumulado,
             this.VentasPerdidas,
             this.VentasPerdidasReembolso,
             this.VentasPerdidasUtilidad,
@@ -188,15 +195,121 @@ namespace FinalSIM_Ejercicio17
             this.dataGridViewSimulacion.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewSimulacion.Name = "dataGridViewSimulacion";
             this.dataGridViewSimulacion.RowTemplate.Height = 25;
-            this.dataGridViewSimulacion.Size = new System.Drawing.Size(1793, 584);
+            this.dataGridViewSimulacion.Size = new System.Drawing.Size(1791, 607);
             this.dataGridViewSimulacion.TabIndex = 0;
+            // 
+            // NroDia
+            // 
+            this.NroDia.HeaderText = "N° Dia";
+            this.NroDia.Name = "NroDia";
+            // 
+            // RandomCantidadOrden
+            // 
+            this.RandomCantidadOrden.HeaderText = "Random Cantidad Orden";
+            this.RandomCantidadOrden.Name = "RandomCantidadOrden";
+            this.RandomCantidadOrden.Visible = false;
+            // 
+            // CantidadOrden
+            // 
+            this.CantidadOrden.HeaderText = "Cantidad de Orden";
+            this.CantidadOrden.Name = "CantidadOrden";
+            // 
+            // CantidadOrdenAcumulado
+            // 
+            this.CantidadOrdenAcumulado.HeaderText = "Cantidad de Orden Acumulado";
+            this.CantidadOrdenAcumulado.Name = "CantidadOrdenAcumulado";
+            // 
+            // RandomDemanda
+            // 
+            this.RandomDemanda.HeaderText = "Random Demanda";
+            this.RandomDemanda.Name = "RandomDemanda";
+            // 
+            // Demanda
+            // 
+            this.Demanda.HeaderText = "Demanda";
+            this.Demanda.Name = "Demanda";
+            // 
+            // DemandaAcumulada
+            // 
+            this.DemandaAcumulada.HeaderText = "Demanda Acumulada";
+            this.DemandaAcumulada.Name = "DemandaAcumulada";
+            // 
+            // VentasRealizadas
+            // 
+            this.VentasRealizadas.HeaderText = "Ventas Realizadas";
+            this.VentasRealizadas.Name = "VentasRealizadas";
+            // 
+            // VentasRealizadasAcumulado
+            // 
+            this.VentasRealizadasAcumulado.HeaderText = "Ventas Realizadas Acumulado";
+            this.VentasRealizadasAcumulado.Name = "VentasRealizadasAcumulado";
+            // 
+            // VentasPerdidas
+            // 
+            this.VentasPerdidas.HeaderText = "Ventas Perdidas";
+            this.VentasPerdidas.Name = "VentasPerdidas";
+            // 
+            // VentasPerdidasReembolso
+            // 
+            this.VentasPerdidasReembolso.HeaderText = "Ventas Perdidas Reembolso Acum";
+            this.VentasPerdidasReembolso.Name = "VentasPerdidasReembolso";
+            // 
+            // VentasPerdidasUtilidad
+            // 
+            this.VentasPerdidasUtilidad.HeaderText = "Ventas Perdidas Utilidad Acum";
+            this.VentasPerdidasUtilidad.Name = "VentasPerdidasUtilidad";
+            // 
+            // PrecioCompra
+            // 
+            this.PrecioCompra.HeaderText = "Costo Compra";
+            this.PrecioCompra.Name = "PrecioCompra";
+            // 
+            // CostoCompraAcumulado
+            // 
+            this.CostoCompraAcumulado.HeaderText = "Costo de Compra Acumulado";
+            this.CostoCompraAcumulado.Name = "CostoCompraAcumulado";
+            // 
+            // Reembolso
+            // 
+            this.Reembolso.HeaderText = "Reembolso";
+            this.Reembolso.Name = "Reembolso";
+            // 
+            // ReembolsoAcumulado
+            // 
+            this.ReembolsoAcumulado.HeaderText = "Reembolso Acumulado";
+            this.ReembolsoAcumulado.Name = "ReembolsoAcumulado";
+            // 
+            // CostoUtilidad
+            // 
+            this.CostoUtilidad.HeaderText = "Costo de Utilidad";
+            this.CostoUtilidad.Name = "CostoUtilidad";
+            // 
+            // CostoUtilidadAcumulado
+            // 
+            this.CostoUtilidadAcumulado.HeaderText = "Costo Utilidad Acumulado";
+            this.CostoUtilidadAcumulado.Name = "CostoUtilidadAcumulado";
+            // 
+            // CostoDiario
+            // 
+            this.CostoDiario.HeaderText = "Costo Diario";
+            this.CostoDiario.Name = "CostoDiario";
+            // 
+            // CostoDiarioAcumulado
+            // 
+            this.CostoDiarioAcumulado.HeaderText = "Costo Diario Acumulado";
+            this.CostoDiarioAcumulado.Name = "CostoDiarioAcumulado";
+            // 
+            // CostoPromedio
+            // 
+            this.CostoPromedio.HeaderText = "Costo Promedio";
+            this.CostoPromedio.Name = "CostoPromedio";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(1602, 17);
+            this.button1.Location = new System.Drawing.Point(1602, 12);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(189, 87);
+            this.button1.Size = new System.Drawing.Size(189, 92);
             this.button1.TabIndex = 1;
             this.button1.Text = "SIMULAR";
             this.button1.UseVisualStyleBackColor = true;
@@ -204,7 +317,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtPrecioCompra
             // 
-            this.txtPrecioCompra.Location = new System.Drawing.Point(160, 25);
+            this.txtPrecioCompra.Location = new System.Drawing.Point(161, 47);
             this.txtPrecioCompra.MaxLength = 10;
             this.txtPrecioCompra.Name = "txtPrecioCompra";
             this.txtPrecioCompra.Size = new System.Drawing.Size(45, 26);
@@ -214,7 +327,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtPrecioReembolso
             // 
-            this.txtPrecioReembolso.Location = new System.Drawing.Point(160, 56);
+            this.txtPrecioReembolso.Location = new System.Drawing.Point(161, 78);
             this.txtPrecioReembolso.MaxLength = 10;
             this.txtPrecioReembolso.Name = "txtPrecioReembolso";
             this.txtPrecioReembolso.Size = new System.Drawing.Size(45, 26);
@@ -224,7 +337,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtCostoUtilidad
             // 
-            this.txtCostoUtilidad.Location = new System.Drawing.Point(160, 86);
+            this.txtCostoUtilidad.Location = new System.Drawing.Point(161, 108);
             this.txtCostoUtilidad.MaxLength = 10;
             this.txtCostoUtilidad.Name = "txtCostoUtilidad";
             this.txtCostoUtilidad.Size = new System.Drawing.Size(45, 26);
@@ -234,7 +347,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtDemandaAnteriorInicial
             // 
-            this.txtDemandaAnteriorInicial.Location = new System.Drawing.Point(141, 30);
+            this.txtDemandaAnteriorInicial.Location = new System.Drawing.Point(137, 55);
             this.txtDemandaAnteriorInicial.MaxLength = 10;
             this.txtDemandaAnteriorInicial.Name = "txtDemandaAnteriorInicial";
             this.txtDemandaAnteriorInicial.Size = new System.Drawing.Size(45, 26);
@@ -244,7 +357,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtTiempoTotalSimulacion
             // 
-            this.txtTiempoTotalSimulacion.Location = new System.Drawing.Point(159, 20);
+            this.txtTiempoTotalSimulacion.Location = new System.Drawing.Point(159, 46);
             this.txtTiempoTotalSimulacion.MaxLength = 6;
             this.txtTiempoTotalSimulacion.Name = "txtTiempoTotalSimulacion";
             this.txtTiempoTotalSimulacion.Size = new System.Drawing.Size(39, 26);
@@ -256,7 +369,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(47, 89);
+            this.label1.Location = new System.Drawing.Point(48, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(109, 18);
             this.label1.TabIndex = 7;
@@ -266,7 +379,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(28, 33);
+            this.label2.Location = new System.Drawing.Point(24, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(107, 18);
             this.label2.TabIndex = 8;
@@ -276,7 +389,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(29, 62);
+            this.label3.Location = new System.Drawing.Point(25, 87);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 36);
             this.label3.TabIndex = 9;
@@ -286,7 +399,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(24, 59);
+            this.label4.Location = new System.Drawing.Point(25, 81);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(133, 18);
             this.label4.TabIndex = 10;
@@ -296,7 +409,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(45, 27);
+            this.label5.Location = new System.Drawing.Point(46, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(112, 18);
             this.label5.TabIndex = 11;
@@ -306,7 +419,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(60, 25);
+            this.label6.Location = new System.Drawing.Point(61, 49);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(92, 18);
             this.label6.TabIndex = 12;
@@ -314,7 +427,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtVentasPerdidas
             // 
-            this.txtVentasPerdidas.Location = new System.Drawing.Point(141, 62);
+            this.txtVentasPerdidas.Location = new System.Drawing.Point(137, 87);
             this.txtVentasPerdidas.MaxLength = 10;
             this.txtVentasPerdidas.Name = "txtVentasPerdidas";
             this.txtVentasPerdidas.Size = new System.Drawing.Size(45, 26);
@@ -329,10 +442,10 @@ namespace FinalSIM_Ejercicio17
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage4);
-            this.tabControl.Location = new System.Drawing.Point(0, 211);
+            this.tabControl.Location = new System.Drawing.Point(0, 194);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1807, 618);
+            this.tabControl.Size = new System.Drawing.Size(1805, 641);
             this.tabControl.TabIndex = 16;
             // 
             // tabPage3
@@ -340,7 +453,7 @@ namespace FinalSIM_Ejercicio17
             this.tabPage3.Controls.Add(this.dataGridViewGrilla);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1799, 590);
+            this.tabPage3.Size = new System.Drawing.Size(1797, 613);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Grilla Presentación";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -357,6 +470,8 @@ namespace FinalSIM_Ejercicio17
             this.RandomDemandaGrilla,
             this.DemandaGrilla,
             this.DemandaAcumGrilla,
+            this.VentasRealizadasGrilla,
+            this.VentasRealizadasAcumuladoGrilla,
             this.VentasPerdidasGrilla,
             this.VentasPerdidasReembolsoGrilla,
             this.VentasPerdidasUtilidadGrilla,
@@ -373,8 +488,114 @@ namespace FinalSIM_Ejercicio17
             this.dataGridViewGrilla.Location = new System.Drawing.Point(0, 0);
             this.dataGridViewGrilla.Name = "dataGridViewGrilla";
             this.dataGridViewGrilla.RowTemplate.Height = 25;
-            this.dataGridViewGrilla.Size = new System.Drawing.Size(1799, 590);
+            this.dataGridViewGrilla.Size = new System.Drawing.Size(1797, 613);
             this.dataGridViewGrilla.TabIndex = 1;
+            // 
+            // NDiaGrilla
+            // 
+            this.NDiaGrilla.HeaderText = "N° Dia";
+            this.NDiaGrilla.Name = "NDiaGrilla";
+            // 
+            // RandomCantidadOrdenGrilla
+            // 
+            this.RandomCantidadOrdenGrilla.HeaderText = "Random Cantidad Orden";
+            this.RandomCantidadOrdenGrilla.Name = "RandomCantidadOrdenGrilla";
+            this.RandomCantidadOrdenGrilla.Visible = false;
+            // 
+            // CantidadOrdenGrilla
+            // 
+            this.CantidadOrdenGrilla.HeaderText = "Cantidad de Orden";
+            this.CantidadOrdenGrilla.Name = "CantidadOrdenGrilla";
+            // 
+            // CantidadOrdenAcumGrilla
+            // 
+            this.CantidadOrdenAcumGrilla.HeaderText = "Cantidad de Orden Acumulado";
+            this.CantidadOrdenAcumGrilla.Name = "CantidadOrdenAcumGrilla";
+            // 
+            // RandomDemandaGrilla
+            // 
+            this.RandomDemandaGrilla.HeaderText = "Random Demanda";
+            this.RandomDemandaGrilla.Name = "RandomDemandaGrilla";
+            // 
+            // DemandaGrilla
+            // 
+            this.DemandaGrilla.HeaderText = "Demanda";
+            this.DemandaGrilla.Name = "DemandaGrilla";
+            // 
+            // DemandaAcumGrilla
+            // 
+            this.DemandaAcumGrilla.HeaderText = "Demanda Acumulada";
+            this.DemandaAcumGrilla.Name = "DemandaAcumGrilla";
+            // 
+            // VentasRealizadasGrilla
+            // 
+            this.VentasRealizadasGrilla.HeaderText = "Ventas Realizadas";
+            this.VentasRealizadasGrilla.Name = "VentasRealizadasGrilla";
+            // 
+            // VentasRealizadasAcumuladoGrilla
+            // 
+            this.VentasRealizadasAcumuladoGrilla.HeaderText = "Ventas Realizadas Acumulado";
+            this.VentasRealizadasAcumuladoGrilla.Name = "VentasRealizadasAcumuladoGrilla";
+            // 
+            // VentasPerdidasGrilla
+            // 
+            this.VentasPerdidasGrilla.HeaderText = "Ventas Perdidas";
+            this.VentasPerdidasGrilla.Name = "VentasPerdidasGrilla";
+            // 
+            // VentasPerdidasReembolsoGrilla
+            // 
+            this.VentasPerdidasReembolsoGrilla.HeaderText = "Ventas Perdidas Reembolso Acum";
+            this.VentasPerdidasReembolsoGrilla.Name = "VentasPerdidasReembolsoGrilla";
+            // 
+            // VentasPerdidasUtilidadGrilla
+            // 
+            this.VentasPerdidasUtilidadGrilla.HeaderText = "Ventas Perdidas Utilidad Acum";
+            this.VentasPerdidasUtilidadGrilla.Name = "VentasPerdidasUtilidadGrilla";
+            // 
+            // PrecioCompraGrilla
+            // 
+            this.PrecioCompraGrilla.HeaderText = "Costo Compra";
+            this.PrecioCompraGrilla.Name = "PrecioCompraGrilla";
+            // 
+            // CostoCompraAcumuladoGrilla
+            // 
+            this.CostoCompraAcumuladoGrilla.HeaderText = "Costo de Compra Acumulado";
+            this.CostoCompraAcumuladoGrilla.Name = "CostoCompraAcumuladoGrilla";
+            // 
+            // ReembolsoGrilla
+            // 
+            this.ReembolsoGrilla.HeaderText = "Reembolso";
+            this.ReembolsoGrilla.Name = "ReembolsoGrilla";
+            // 
+            // ReembolsoAcumuladoGrilla
+            // 
+            this.ReembolsoAcumuladoGrilla.HeaderText = "Reembolso Acumulado";
+            this.ReembolsoAcumuladoGrilla.Name = "ReembolsoAcumuladoGrilla";
+            // 
+            // CostoUtilidadGrilla
+            // 
+            this.CostoUtilidadGrilla.HeaderText = "Costo de Utilidad";
+            this.CostoUtilidadGrilla.Name = "CostoUtilidadGrilla";
+            // 
+            // CostoUtilidadAcumuladoGrilla
+            // 
+            this.CostoUtilidadAcumuladoGrilla.HeaderText = "Costo Utilidad Acumulado";
+            this.CostoUtilidadAcumuladoGrilla.Name = "CostoUtilidadAcumuladoGrilla";
+            // 
+            // CostoDiarioGrilla
+            // 
+            this.CostoDiarioGrilla.HeaderText = "Costo Diario";
+            this.CostoDiarioGrilla.Name = "CostoDiarioGrilla";
+            // 
+            // CostoDiarioAcumuladoGrilla
+            // 
+            this.CostoDiarioAcumuladoGrilla.HeaderText = "Costo Diario Acumulado";
+            this.CostoDiarioAcumuladoGrilla.Name = "CostoDiarioAcumuladoGrilla";
+            // 
+            // CostoPromedioGrilla
+            // 
+            this.CostoPromedioGrilla.HeaderText = "Costo Promedio";
+            this.CostoPromedioGrilla.Name = "CostoPromedioGrilla";
             // 
             // tabPage1
             // 
@@ -382,7 +603,7 @@ namespace FinalSIM_Ejercicio17
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1799, 590);
+            this.tabPage1.Size = new System.Drawing.Size(1797, 613);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Simulacion";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -393,7 +614,7 @@ namespace FinalSIM_Ejercicio17
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1799, 590);
+            this.tabPage2.Size = new System.Drawing.Size(1797, 613);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Resultados";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -414,6 +635,7 @@ namespace FinalSIM_Ejercicio17
             this.CostoUtilidadPolitica,
             this.PrecioReembolsoPolitica,
             this.OrdenesTotales,
+            this.VentasRealizadasTotales,
             this.DemandaTotal,
             this.VentasTotalesPerdidasReembolso,
             this.VentasTotalesPerdidasUtilidad,
@@ -423,7 +645,7 @@ namespace FinalSIM_Ejercicio17
             this.dataGridViewResultados.Location = new System.Drawing.Point(3, 3);
             this.dataGridViewResultados.Name = "dataGridViewResultados";
             this.dataGridViewResultados.RowTemplate.Height = 25;
-            this.dataGridViewResultados.Size = new System.Drawing.Size(1793, 584);
+            this.dataGridViewResultados.Size = new System.Drawing.Size(1791, 607);
             this.dataGridViewResultados.TabIndex = 0;
             // 
             // tabPage4
@@ -431,7 +653,7 @@ namespace FinalSIM_Ejercicio17
             this.tabPage4.Controls.Add(this.pictureBox1);
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(1799, 590);
+            this.tabPage4.Size = new System.Drawing.Size(1797, 613);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Enunciado";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -452,7 +674,7 @@ namespace FinalSIM_Ejercicio17
             this.opPoliticaA.AutoSize = true;
             this.opPoliticaA.Checked = true;
             this.opPoliticaA.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.opPoliticaA.Location = new System.Drawing.Point(32, 25);
+            this.opPoliticaA.Location = new System.Drawing.Point(32, 63);
             this.opPoliticaA.Name = "opPoliticaA";
             this.opPoliticaA.Size = new System.Drawing.Size(83, 22);
             this.opPoliticaA.TabIndex = 17;
@@ -464,7 +686,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.opPoliticaB.AutoSize = true;
             this.opPoliticaB.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.opPoliticaB.Location = new System.Drawing.Point(33, 53);
+            this.opPoliticaB.Location = new System.Drawing.Point(32, 91);
             this.opPoliticaB.Name = "opPoliticaB";
             this.opPoliticaB.Size = new System.Drawing.Size(82, 22);
             this.opPoliticaB.TabIndex = 18;
@@ -479,9 +701,9 @@ namespace FinalSIM_Ejercicio17
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtVentasPerdidas);
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox1.Location = new System.Drawing.Point(788, 12);
+            this.groupBox1.Location = new System.Drawing.Point(788, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(205, 114);
+            this.groupBox1.Size = new System.Drawing.Size(205, 182);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Condiciones Iniciales";
@@ -491,9 +713,9 @@ namespace FinalSIM_Ejercicio17
             this.groupBox2.Controls.Add(this.opPoliticaA);
             this.groupBox2.Controls.Add(this.opPoliticaB);
             this.groupBox2.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox2.Location = new System.Drawing.Point(999, 12);
+            this.groupBox2.Location = new System.Drawing.Point(999, 6);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(149, 91);
+            this.groupBox2.Size = new System.Drawing.Size(149, 182);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Políticas de pedidos";
@@ -504,9 +726,9 @@ namespace FinalSIM_Ejercicio17
             this.groupBoxOrden.Controls.Add(this.radioButtonCantidadFija);
             this.groupBoxOrden.Controls.Add(this.radioButtonCantidadAleatoria);
             this.groupBoxOrden.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBoxOrden.Location = new System.Drawing.Point(1154, 12);
+            this.groupBoxOrden.Location = new System.Drawing.Point(1154, 6);
             this.groupBoxOrden.Name = "groupBoxOrden";
-            this.groupBoxOrden.Size = new System.Drawing.Size(209, 91);
+            this.groupBoxOrden.Size = new System.Drawing.Size(209, 182);
             this.groupBoxOrden.TabIndex = 22;
             this.groupBoxOrden.TabStop = false;
             this.groupBoxOrden.Text = "Distribucion cantidad orden";
@@ -514,7 +736,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtCantidadOrden
             // 
-            this.txtCantidadOrden.Location = new System.Drawing.Point(127, 30);
+            this.txtCantidadOrden.Location = new System.Drawing.Point(127, 67);
             this.txtCantidadOrden.MaxLength = 6;
             this.txtCantidadOrden.Name = "txtCantidadOrden";
             this.txtCantidadOrden.Size = new System.Drawing.Size(39, 26);
@@ -527,7 +749,7 @@ namespace FinalSIM_Ejercicio17
             this.radioButtonCantidadFija.AutoSize = true;
             this.radioButtonCantidadFija.Checked = true;
             this.radioButtonCantidadFija.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonCantidadFija.Location = new System.Drawing.Point(19, 31);
+            this.radioButtonCantidadFija.Location = new System.Drawing.Point(19, 68);
             this.radioButtonCantidadFija.Name = "radioButtonCantidadFija";
             this.radioButtonCantidadFija.Size = new System.Drawing.Size(102, 22);
             this.radioButtonCantidadFija.TabIndex = 17;
@@ -539,7 +761,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.radioButtonCantidadAleatoria.AutoSize = true;
             this.radioButtonCantidadAleatoria.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.radioButtonCantidadAleatoria.Location = new System.Drawing.Point(19, 59);
+            this.radioButtonCantidadAleatoria.Location = new System.Drawing.Point(19, 96);
             this.radioButtonCantidadAleatoria.Name = "radioButtonCantidadAleatoria";
             this.radioButtonCantidadAleatoria.Size = new System.Drawing.Size(151, 22);
             this.radioButtonCantidadAleatoria.TabIndex = 18;
@@ -548,7 +770,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtDesde
             // 
-            this.txtDesde.Location = new System.Drawing.Point(159, 52);
+            this.txtDesde.Location = new System.Drawing.Point(159, 78);
             this.txtDesde.MaxLength = 6;
             this.txtDesde.Name = "txtDesde";
             this.txtDesde.Size = new System.Drawing.Size(39, 26);
@@ -560,7 +782,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(58, 87);
+            this.label8.Location = new System.Drawing.Point(59, 113);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 18);
             this.label8.TabIndex = 25;
@@ -568,7 +790,7 @@ namespace FinalSIM_Ejercicio17
             // 
             // txtDiasAMostrar
             // 
-            this.txtDiasAMostrar.Location = new System.Drawing.Point(159, 84);
+            this.txtDiasAMostrar.Location = new System.Drawing.Point(159, 110);
             this.txtDiasAMostrar.MaxLength = 6;
             this.txtDiasAMostrar.Name = "txtDiasAMostrar";
             this.txtDiasAMostrar.Size = new System.Drawing.Size(39, 26);
@@ -615,9 +837,9 @@ namespace FinalSIM_Ejercicio17
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(562, 12);
+            this.groupBox3.Location = new System.Drawing.Point(562, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(220, 124);
+            this.groupBox3.Size = new System.Drawing.Size(220, 182);
             this.groupBox3.TabIndex = 30;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Costos";
@@ -631,9 +853,9 @@ namespace FinalSIM_Ejercicio17
             this.groupBox4.Controls.Add(this.txtDiasAMostrar);
             this.groupBox4.Controls.Add(this.txtDesde);
             this.groupBox4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox4.Location = new System.Drawing.Point(1369, 12);
+            this.groupBox4.Location = new System.Drawing.Point(1369, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(227, 124);
+            this.groupBox4.Size = new System.Drawing.Size(227, 182);
             this.groupBox4.TabIndex = 31;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Tiempo";
@@ -642,7 +864,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(18, 56);
+            this.label7.Location = new System.Drawing.Point(20, 81);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(133, 18);
             this.label7.TabIndex = 23;
@@ -666,9 +888,9 @@ namespace FinalSIM_Ejercicio17
             this.groupBox5.Controls.Add(this.radioButtonTablaEnunciado);
             this.groupBox5.Controls.Add(this.radioButtonDemandaUniforme);
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox5.Location = new System.Drawing.Point(217, 17);
+            this.groupBox5.Location = new System.Drawing.Point(217, 6);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(339, 188);
+            this.groupBox5.Size = new System.Drawing.Size(339, 182);
             this.groupBox5.TabIndex = 22;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Demanda";
@@ -688,7 +910,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.labelDesvN.AutoSize = true;
             this.labelDesvN.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDesvN.Location = new System.Drawing.Point(224, 86);
+            this.labelDesvN.Location = new System.Drawing.Point(227, 86);
             this.labelDesvN.Name = "labelDesvN";
             this.labelDesvN.Size = new System.Drawing.Size(38, 18);
             this.labelDesvN.TabIndex = 29;
@@ -710,7 +932,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.labelB.AutoSize = true;
             this.labelB.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelB.Location = new System.Drawing.Point(247, 55);
+            this.labelB.Location = new System.Drawing.Point(249, 55);
             this.labelB.Name = "labelB";
             this.labelB.Size = new System.Drawing.Size(16, 18);
             this.labelB.TabIndex = 27;
@@ -861,7 +1083,7 @@ namespace FinalSIM_Ejercicio17
             this.button3.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.button3.Location = new System.Drawing.Point(1602, 155);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(189, 39);
+            this.button3.Size = new System.Drawing.Size(189, 33);
             this.button3.TabIndex = 34;
             this.button3.Text = "Cargar ejemplo";
             this.button3.UseVisualStyleBackColor = true;
@@ -883,198 +1105,6 @@ namespace FinalSIM_Ejercicio17
             this.progressBar.Name = "progressBar";
             this.progressBar.Size = new System.Drawing.Size(1053, 23);
             this.progressBar.TabIndex = 36;
-            // 
-            // NDiaGrilla
-            // 
-            this.NDiaGrilla.HeaderText = "N° Dia";
-            this.NDiaGrilla.Name = "NDiaGrilla";
-            // 
-            // RandomCantidadOrdenGrilla
-            // 
-            this.RandomCantidadOrdenGrilla.HeaderText = "Random Cantidad Orden";
-            this.RandomCantidadOrdenGrilla.Name = "RandomCantidadOrdenGrilla";
-            this.RandomCantidadOrdenGrilla.Visible = false;
-            // 
-            // CantidadOrdenGrilla
-            // 
-            this.CantidadOrdenGrilla.HeaderText = "Cantidad de Orden";
-            this.CantidadOrdenGrilla.Name = "CantidadOrdenGrilla";
-            // 
-            // CantidadOrdenAcumGrilla
-            // 
-            this.CantidadOrdenAcumGrilla.HeaderText = "Cantidad de Orden Acumulado";
-            this.CantidadOrdenAcumGrilla.Name = "CantidadOrdenAcumGrilla";
-            // 
-            // RandomDemandaGrilla
-            // 
-            this.RandomDemandaGrilla.HeaderText = "Random Demanda";
-            this.RandomDemandaGrilla.Name = "RandomDemandaGrilla";
-            // 
-            // DemandaGrilla
-            // 
-            this.DemandaGrilla.HeaderText = "Demanda";
-            this.DemandaGrilla.Name = "DemandaGrilla";
-            // 
-            // DemandaAcumGrilla
-            // 
-            this.DemandaAcumGrilla.HeaderText = "Demanda Acumulada";
-            this.DemandaAcumGrilla.Name = "DemandaAcumGrilla";
-            // 
-            // VentasPerdidasGrilla
-            // 
-            this.VentasPerdidasGrilla.HeaderText = "Ventas Perdidas";
-            this.VentasPerdidasGrilla.Name = "VentasPerdidasGrilla";
-            // 
-            // VentasPerdidasReembolsoGrilla
-            // 
-            this.VentasPerdidasReembolsoGrilla.HeaderText = "Ventas Perdidas Reembolso Acum";
-            this.VentasPerdidasReembolsoGrilla.Name = "VentasPerdidasReembolsoGrilla";
-            // 
-            // VentasPerdidasUtilidadGrilla
-            // 
-            this.VentasPerdidasUtilidadGrilla.HeaderText = "Ventas Perdidas Utilidad Acum";
-            this.VentasPerdidasUtilidadGrilla.Name = "VentasPerdidasUtilidadGrilla";
-            // 
-            // PrecioCompraGrilla
-            // 
-            this.PrecioCompraGrilla.HeaderText = "Costo Compra";
-            this.PrecioCompraGrilla.Name = "PrecioCompraGrilla";
-            // 
-            // CostoCompraAcumuladoGrilla
-            // 
-            this.CostoCompraAcumuladoGrilla.HeaderText = "Costo de Compra Acumulado";
-            this.CostoCompraAcumuladoGrilla.Name = "CostoCompraAcumuladoGrilla";
-            // 
-            // ReembolsoGrilla
-            // 
-            this.ReembolsoGrilla.HeaderText = "Reembolso";
-            this.ReembolsoGrilla.Name = "ReembolsoGrilla";
-            // 
-            // ReembolsoAcumuladoGrilla
-            // 
-            this.ReembolsoAcumuladoGrilla.HeaderText = "Reembolso Acumulado";
-            this.ReembolsoAcumuladoGrilla.Name = "ReembolsoAcumuladoGrilla";
-            // 
-            // CostoUtilidadGrilla
-            // 
-            this.CostoUtilidadGrilla.HeaderText = "Costo de Utilidad";
-            this.CostoUtilidadGrilla.Name = "CostoUtilidadGrilla";
-            // 
-            // CostoUtilidadAcumuladoGrilla
-            // 
-            this.CostoUtilidadAcumuladoGrilla.HeaderText = "Costo Utilidad Acumulado";
-            this.CostoUtilidadAcumuladoGrilla.Name = "CostoUtilidadAcumuladoGrilla";
-            // 
-            // CostoDiarioGrilla
-            // 
-            this.CostoDiarioGrilla.HeaderText = "Costo Diario";
-            this.CostoDiarioGrilla.Name = "CostoDiarioGrilla";
-            // 
-            // CostoDiarioAcumuladoGrilla
-            // 
-            this.CostoDiarioAcumuladoGrilla.HeaderText = "Costo Diario Acumulado";
-            this.CostoDiarioAcumuladoGrilla.Name = "CostoDiarioAcumuladoGrilla";
-            // 
-            // CostoPromedioGrilla
-            // 
-            this.CostoPromedioGrilla.HeaderText = "Costo Promedio";
-            this.CostoPromedioGrilla.Name = "CostoPromedioGrilla";
-            // 
-            // NroDia
-            // 
-            this.NroDia.HeaderText = "N° Dia";
-            this.NroDia.Name = "NroDia";
-            // 
-            // RandomCantidadOrden
-            // 
-            this.RandomCantidadOrden.HeaderText = "Random Cantidad Orden";
-            this.RandomCantidadOrden.Name = "RandomCantidadOrden";
-            this.RandomCantidadOrden.Visible = false;
-            // 
-            // CantidadOrden
-            // 
-            this.CantidadOrden.HeaderText = "Cantidad de Orden";
-            this.CantidadOrden.Name = "CantidadOrden";
-            // 
-            // CantidadOrdenAcumulado
-            // 
-            this.CantidadOrdenAcumulado.HeaderText = "Cantidad de Orden Acumulado";
-            this.CantidadOrdenAcumulado.Name = "CantidadOrdenAcumulado";
-            // 
-            // RandomDemanda
-            // 
-            this.RandomDemanda.HeaderText = "Random Demanda";
-            this.RandomDemanda.Name = "RandomDemanda";
-            // 
-            // Demanda
-            // 
-            this.Demanda.HeaderText = "Demanda";
-            this.Demanda.Name = "Demanda";
-            // 
-            // DemandaAcumulada
-            // 
-            this.DemandaAcumulada.HeaderText = "Demanda Acumulada";
-            this.DemandaAcumulada.Name = "DemandaAcumulada";
-            // 
-            // VentasPerdidas
-            // 
-            this.VentasPerdidas.HeaderText = "Ventas Perdidas";
-            this.VentasPerdidas.Name = "VentasPerdidas";
-            // 
-            // VentasPerdidasReembolso
-            // 
-            this.VentasPerdidasReembolso.HeaderText = "Ventas Perdidas Reembolso Acum";
-            this.VentasPerdidasReembolso.Name = "VentasPerdidasReembolso";
-            // 
-            // VentasPerdidasUtilidad
-            // 
-            this.VentasPerdidasUtilidad.HeaderText = "Ventas Perdidas Utilidad Acum";
-            this.VentasPerdidasUtilidad.Name = "VentasPerdidasUtilidad";
-            // 
-            // PrecioCompra
-            // 
-            this.PrecioCompra.HeaderText = "Costo Compra";
-            this.PrecioCompra.Name = "PrecioCompra";
-            // 
-            // CostoCompraAcumulado
-            // 
-            this.CostoCompraAcumulado.HeaderText = "Costo de Compra Acumulado";
-            this.CostoCompraAcumulado.Name = "CostoCompraAcumulado";
-            // 
-            // Reembolso
-            // 
-            this.Reembolso.HeaderText = "Reembolso";
-            this.Reembolso.Name = "Reembolso";
-            // 
-            // ReembolsoAcumulado
-            // 
-            this.ReembolsoAcumulado.HeaderText = "Reembolso Acumulado";
-            this.ReembolsoAcumulado.Name = "ReembolsoAcumulado";
-            // 
-            // CostoUtilidad
-            // 
-            this.CostoUtilidad.HeaderText = "Costo de Utilidad";
-            this.CostoUtilidad.Name = "CostoUtilidad";
-            // 
-            // CostoUtilidadAcumulado
-            // 
-            this.CostoUtilidadAcumulado.HeaderText = "Costo Utilidad Acumulado";
-            this.CostoUtilidadAcumulado.Name = "CostoUtilidadAcumulado";
-            // 
-            // CostoDiario
-            // 
-            this.CostoDiario.HeaderText = "Costo Diario";
-            this.CostoDiario.Name = "CostoDiario";
-            // 
-            // CostoDiarioAcumulado
-            // 
-            this.CostoDiarioAcumulado.HeaderText = "Costo Diario Acumulado";
-            this.CostoDiarioAcumulado.Name = "CostoDiarioAcumulado";
-            // 
-            // CostoPromedio
-            // 
-            this.CostoPromedio.HeaderText = "Costo Promedio";
-            this.CostoPromedio.Name = "CostoPromedio";
             // 
             // N
             // 
@@ -1131,6 +1161,11 @@ namespace FinalSIM_Ejercicio17
             this.OrdenesTotales.HeaderText = "Cantidad Ordenes Totales";
             this.OrdenesTotales.Name = "OrdenesTotales";
             // 
+            // VentasRealizadasTotales
+            // 
+            this.VentasRealizadasTotales.HeaderText = "Ventas Realizadas Totales";
+            this.VentasRealizadasTotales.Name = "VentasRealizadasTotales";
+            // 
             // DemandaTotal
             // 
             this.DemandaTotal.HeaderText = "Demanda Total";
@@ -1160,7 +1195,7 @@ namespace FinalSIM_Ejercicio17
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1803, 813);
+            this.ClientSize = new System.Drawing.Size(1803, 835);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -1274,6 +1309,8 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.DataGridViewTextBoxColumn RandomDemandaGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn DemandaGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn DemandaAcumGrilla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasRealizadasGrilla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasRealizadasAcumuladoGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasReembolsoGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasUtilidadGrilla;
@@ -1293,6 +1330,8 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.DataGridViewTextBoxColumn RandomDemanda;
         private System.Windows.Forms.DataGridViewTextBoxColumn Demanda;
         private System.Windows.Forms.DataGridViewTextBoxColumn DemandaAcumulada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasRealizadas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasRealizadasAcumulado;
         private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidas;
         private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasReembolso;
         private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasUtilidad;
@@ -1316,6 +1355,7 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidadPolitica;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioReembolsoPolitica;
         private System.Windows.Forms.DataGridViewTextBoxColumn OrdenesTotales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasRealizadasTotales;
         private System.Windows.Forms.DataGridViewTextBoxColumn DemandaTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotalesPerdidasReembolso;
         private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotalesPerdidasUtilidad;
