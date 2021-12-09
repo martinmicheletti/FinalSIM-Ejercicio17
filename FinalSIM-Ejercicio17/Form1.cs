@@ -23,6 +23,12 @@ namespace FinalSIM_Ejercicio17
                 txtCostoUtilidad.Text.ToString() == "" ||
                 txtDemandaAnteriorInicial.Text.ToString() == "" ||
                 txtVentasPerdidas.Text.ToString() == "" ||
+                (txtCantidadOrden.Visible == true && radioButtonCantidadFija.Checked == true && txtCantidadOrden.Text.ToString() == "") ||
+                (txtA.Visible == true && radioButtonDemandaUniforme.Checked == true && txtA.Text.ToString() == "") ||
+                (txtB.Visible == true && radioButtonDemandaUniforme.Checked == true && txtB.Text.ToString() == "") ||
+                (txtMediaN.Visible == true && radioButtonDemandaNormal.Checked == true && txtMediaN.Text.ToString() == "") ||
+                (txtDesvN.Visible == true && radioButtonDemandaNormal.Checked == true && txtDesvN.Text.ToString() == "") ||
+                (txtMediaExp.Visible == true && (radioButtonDemandaExp.Checked == true || radioButtonDemandaPoisson.Checked) && txtMediaExp.Text.ToString() == "") ||
                 txtTiempoTotalSimulacion.Text.ToString() == "" ||
                 txtDesde.Text.ToString() == "" ||
                 txtDiasAMostrar.Text.ToString() == "")
@@ -44,9 +50,9 @@ namespace FinalSIM_Ejercicio17
             //dataGridViewSimulacion.Visible = false;
             //dataGridViewGrilla.Visible = false;
 
+            // Progress Bar
             progressBar.Visible = true;
-            progressBar.Minimum = 1;
-            // Set Maximum to the total number of files to copy.           
+            progressBar.Minimum = 1;                     
             // Set the initial value of the ProgressBar.
             progressBar.Value = 1;
             // Set the Step property to a value of 1 to represent each file being copied.
@@ -64,12 +70,21 @@ namespace FinalSIM_Ejercicio17
             double demandaAnterior = double.Parse(txtDemandaAnteriorInicial.Text.ToString());
             double ventasPerdidas = double.Parse(txtVentasPerdidas.Text.ToString());
 
+            double aDemanda = double.Parse(txtA.Text.ToString());
+            double bDemanda = double.Parse(txtB.Text.ToString());
+
+            double mediaNormal = double.Parse(txtMediaN.Text.ToString());
+            double desvNormal = double.Parse(txtDesvN.Text.ToString());
+
+            double mediaExp = double.Parse(txtMediaExp.Text.ToString());
+
             double diasTiempoTotal = double.Parse(txtTiempoTotalSimulacion.Text.ToString());
 
             double desde = double.Parse(txtDesde.Text.ToString());
             double diasAMostrar = double.Parse(txtDiasAMostrar.Text.ToString());
             double hasta = desde + diasAMostrar;
 
+            // Set Maximum to the total number of files to copy.
             progressBar.Maximum = (int)diasTiempoTotal;
 
             int dia = 0;
@@ -81,6 +96,7 @@ namespace FinalSIM_Ejercicio17
             int nroFilaAnterior = 0;
             var rowBefore = new DataGridViewRow();
             double cantidadAPedir = 0;
+            double cantidadOrdenAcumulado = 0;
 
             double randomCantidadOrden = 0;
             double randomDemanda = 0;
@@ -89,11 +105,15 @@ namespace FinalSIM_Ejercicio17
             double ventasPerdidasDiaAnterior = 0;
 
             double demanda = 0;
+            double demandaAcumulada = 0;
+            string distribucionDemanda = "";
 
             double costoReembolso = 0;
             double costoUtilidadDia = 0;
 
             double ventasPerdidasEnElDia = 0;
+            double ventasPerdidasReembolso = 0;
+            double ventasPerdidasUtilidad = 0;
 
             double costoCompraAcumulado = 0;
             double costoReembolsoAcumulado = 0;
@@ -108,31 +128,96 @@ namespace FinalSIM_Ejercicio17
             // Mas de 2 minutos con 30 segundos los 200.000 dias con for
             while (dia < diasTiempoTotal)
             {
+                // Condicion Inicial
                 if (dia == 0)
                 {
-                    // Condicion Inicial
-
                     //var demanda = demandaAnterior;
                     //var cantVentasPerdidas = ventasPerdidas;
 
-                    // Se agregan los datos a la fila nueva
+                    // Se agregan los datos a la primera fila
                     idx = dataGridViewSimulacion.Rows.Add();
                     row = dataGridViewSimulacion.Rows[idx];
                     row.Cells["NroDia"].Value = dia;
                     //row.Cells["CantidadOrden"].Value = cantidadAPedir;
                     //row.Cells["RandomDemanda"].Value = Math.Round(rnd, 5);
                     row.Cells["Demanda"].Value = demandaAnterior;
+                    
                     row.Cells["VentasPerdidas"].Value = ventasPerdidas;
-                    //row.Cells["PrecioCompra"].Value = Math.Round(costo, 5);
-                    row.Cells["CostoCompraAcumulado"].Value = 0;
-                    row.Cells["Reembolso"].Value = 0;
-                    row.Cells["ReembolsoAcumulado"].Value = 0;
-                    row.Cells["CostoUtilidad"].Value = 0;
-                    row.Cells["CostoUtilidadAcumulado"].Value = 0;
-                    row.Cells["CostoDiarioAcumulado"].Value = 0;
-                    row.Cells["CostoPromedio"].Value = 0;
 
-                    // si el filtro 'desde' incluye el primer dia
+
+                    // SE CONTABILIZA EL DIA CERO EN LAS ESTADISTICAS?
+                    //if (checkBoxDia0.Checked)
+                    //{
+                        //cantidadAPedir = demandaAnterior + ventasPerdidas;
+
+                        //row.Cells["CantidadOrden"].Value = cantidadAPedir;
+
+                        //costo = cantidadAPedir * precioCompra;
+
+                        //if (() > 0)
+                        //{
+                        //    // Si la cantidad es positiva, tengo que devolver periodicos
+                        //    //ventasPerdidasReembolso+=Math.Abs(ventasPerdidasEnElDia);
+
+                        //    ventasPerdidasReembolso = double.Parse(rowBefore.Cells["VentasPerdidasReembolso"].Value.ToString()) + Math.Abs(ventasPerdidasEnElDia);
+
+                        //    // el costo reembolso, es positivo ya que es un ingreso
+                        //    costoReembolso = precioReembolso * Math.Abs(ventasPerdidasEnElDia);
+                        //}
+                        //if (ventasPerdidasEnElDia < 0)
+                        //{
+                        //    // Si es negativa, tengo costo de utilidad (costo de oportunidad)
+                        //    // el costo de utilidad es negativo, ya que es perdida
+                        //    //ventasPerdidasUtilidad+= Math.Abs(ventasPerdidasEnElDia);
+                        //    ventasPerdidasUtilidad = double.Parse(rowBefore.Cells["VentasPerdidasUtilidad"].Value.ToString()) + Math.Abs(ventasPerdidasEnElDia);
+
+                        //    costoUtilidadDia = -(costoUtilidad * Math.Abs(ventasPerdidasEnElDia));
+                        //}
+                        //if (ventasPerdidasEnElDia == 0)
+                        //{
+                        //    // Si es cero, no tengo costo 
+                        //}
+
+                        //row.Cells["PrecioCompra"].Value = Math.Round(costo, 5).ToString("C", CultureInfo.CurrentCulture);
+                        //row.Cells["CostoCompraAcumulado"].Value = Math.Round(costo, 5).ToString("C", CultureInfo.CurrentCulture);
+                        
+                        //row.Cells["VentasPerdidasReembolso"].Value = Math.Abs(ventasPerdidasReembolso);
+                        //row.Cells["VentasPerdidasUtilidad"].Value = Math.Abs(ventasPerdidasUtilidad);
+                        //row.Cells["Reembolso"].Value = Math.Round(costoReembolso, 5).ToString("C", CultureInfo.CurrentCulture);
+                        //row.Cells["ReembolsoAcumulado"].Value = Math.Round(costoReembolsoAcumulado, 5).ToString("C", CultureInfo.CurrentCulture);
+                        //row.Cells["CostoUtilidad"].Value = Math.Round(costoUtilidadDia, 5).ToString("C", CultureInfo.CurrentCulture);
+                        //row.Cells["CostoUtilidadAcumulado"].Value = Math.Round(costoUtilidadAcumulado, 5).ToString("C", CultureInfo.CurrentCulture);
+                        //row.Cells["CostoDiario"].Value = Math.Round(costoDiario, 5).ToString("C", CultureInfo.CurrentCulture);
+                        //row.Cells["CostoDiarioAcumulado"].Value = Math.Round(costoDiarioAcumulado, 5).ToString("C", CultureInfo.CurrentCulture);
+                        //row.Cells["CostoPromedio"].Value = Math.Round(costoPromedio, 5).ToString("C", CultureInfo.CurrentCulture);
+
+                        //row.Cells["CantidadOrdenAcumulado"].Value = 0;
+                        //row.Cells["DemandaAcumulada"].Value = 0;
+                        //row.Cells["VentasPerdidasReembolso"].Value = 0;
+                        //row.Cells["VentasPerdidasUtilidad"].Value = 0;
+                        //row.Cells["CostoCompraAcumulado"].Value = 0;
+                        //row.Cells["Reembolso"].Value = 0;
+                        //row.Cells["ReembolsoAcumulado"].Value = 0;
+                        //row.Cells["CostoUtilidad"].Value = 0;
+                        //row.Cells["CostoUtilidadAcumulado"].Value = 0;
+                        //row.Cells["CostoDiarioAcumulado"].Value = 0;
+                        //row.Cells["CostoPromedio"].Value = 0;
+                    //} else
+                    //{
+                        row.Cells["CantidadOrdenAcumulado"].Value = 0;
+                        row.Cells["DemandaAcumulada"].Value = 0;
+                        row.Cells["VentasPerdidasReembolso"].Value = 0;
+                        row.Cells["VentasPerdidasUtilidad"].Value = 0;
+                        row.Cells["CostoCompraAcumulado"].Value = 0;
+                        row.Cells["Reembolso"].Value = 0;
+                        row.Cells["ReembolsoAcumulado"].Value = 0;
+                        row.Cells["CostoUtilidad"].Value = 0;
+                        row.Cells["CostoUtilidadAcumulado"].Value = 0;
+                        row.Cells["CostoDiarioAcumulado"].Value = 0;
+                        row.Cells["CostoPromedio"].Value = 0;
+                    //}
+                    
+                    // si el filtro 'desde' incluye el dia cero
                     if (desde <= dia)
                     {
                         // Se agregan los datos a la fila nueva en la Grilla
@@ -143,6 +228,10 @@ namespace FinalSIM_Ejercicio17
                         //rowGrilla.Cells["RandomDemandaGrilla"].Value = Math.Round(rnd, 5);
                         rowGrilla.Cells["DemandaGrilla"].Value = demandaAnterior;
                         //rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5);
+                        rowGrilla.Cells["CantidadOrdenAcumGrilla"].Value = 0;
+                        rowGrilla.Cells["DemandaAcumGrilla"].Value = 0;
+                        rowGrilla.Cells["VentasPerdidasReembolsoGrilla"].Value = 0;
+                        rowGrilla.Cells["VentasPerdidasUtilidadGrilla"].Value = 0;
                         rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = 0;
                         rowGrilla.Cells["VentasPerdidasGrilla"].Value = ventasPerdidas;
                         rowGrilla.Cells["ReembolsoGrilla"].Value = 0;
@@ -173,91 +262,149 @@ namespace FinalSIM_Ejercicio17
                 {
                     // POLITICA B:
                     // La cantidad a pedir puede ser 21 22 23 o 24 
+                    if (radioButtonCantidadAleatoria.Checked)
+                    {
+                        // Genero otro random
+                        randomCantidadOrden = random.NextDouble();
+                        dataGridViewSimulacion.Columns["RandomCantidadOrden"].Visible = true;
+                        dataGridViewGrilla.Columns["RandomCantidadOrdenGrilla"].Visible = true;
 
-                    // Genero otro random
-                    randomCantidadOrden = random.NextDouble();
-                    // AGREGAR A LA TABLA ESTE RANDOM
-                    dataGridViewSimulacion.Columns["RandomCantidadOrden"].Visible = true;
-                    dataGridViewGrilla.Columns["RandomCantidadOrdenGrilla"].Visible = true;
-
-                    if (opNormal.Checked)
-                    {
-                        cantidadAPedir = (int)GenerarNumeroDistNormal(randomCantidadOrden, (decimal)22.5, (decimal)1.118033);
+                        // REVISAR SI VA O NO
+                        //if (opNormal.Checked)
+                        //{
+                        //    cantidadAPedir = (int)GenerarNumeroDistNormal(randomCantidadOrden, (decimal)22.5, (decimal)1.118033);
+                        //}
+                        //if (opUniforme.Checked)
+                        //{
+                        //    cantidadAPedir = (int)GenerarNumeroDistUniforme(randomCantidadOrden, 21, 24);
+                        //}
+                        //if (opExponencial.Checked)
+                        //{
+                        //    cantidadAPedir = (int)GenerarNumeroDistExponencial(randomCantidadOrden, (decimal)22.5);
+                        //}
+                        cantidadAPedir = GetCantidadOrdenPorFrecuencia(randomCantidadOrden);
                     }
-                    if (opUniforme.Checked)
+                    else
                     {
-                        cantidadAPedir = (int)GenerarNumeroDistUniforme(randomCantidadOrden, 21, 24);
+                        dataGridViewSimulacion.Columns["RandomCantidadOrden"].Visible = false;
+                        dataGridViewGrilla.Columns["RandomCantidadOrdenGrilla"].Visible = false;
+                        cantidadAPedir = double.Parse(txtCantidadOrden.Text.ToString());
                     }
-                    if (opExponencial.Checked)
-                    {
-                        cantidadAPedir = (int)GenerarNumeroDistExponencial(randomCantidadOrden, (decimal)22.5);
-                    }
-                    //cantidadAPedir = GetCantidadOrdenPorFrecuencia(rand);
+                    
                 }
 
                 // Se calcula la demanda y las ventas perdidas
                 randomDemanda = random.NextDouble();
 
-                demanda = GetDemandaPorFrecuencia(randomDemanda);
-
-                costo = precioCompra * demanda;
-
                 // demanda por frecuencia
+                if (radioButtonTablaEnunciado.Checked)
+                {
+                    distribucionDemanda = "Tabla enunciado";
+                    demanda = GetDemandaPorFrecuencia(randomDemanda);
+                }
+                if (radioButtonDemandaUniforme.Checked)
+                {
+                    distribucionDemanda = "Uniforme ( "+aDemanda+ ";" + bDemanda + " )";
+                    demanda = Math.Round(GenerarNumeroDistUniforme(randomDemanda, double.Parse(txtA.Text), double.Parse(txtB.Text)));
+                }
+                if (radioButtonDemandaNormal.Checked)
+                {
+                    distribucionDemanda = "Normal ( " + mediaNormal + ";" + desvNormal + " )";
+                    do
+                    {
+                        randomDemanda = random.NextDouble();
+                        demanda = Math.Round(GenerarNumeroDistNormal(randomDemanda, double.Parse(txtMediaN.Text), double.Parse(txtDesvN.Text)));
+                    } while (demanda < 0);
+                    
+                }
+                if (radioButtonDemandaExp.Checked)
+                {
+                    distribucionDemanda = "Exponencial Negativa ( u =" + mediaExp + " )";
+                    demanda = Math.Round(GenerarNumeroDistExponencial(randomDemanda, double.Parse(txtMediaExp.Text)));
+                }
+                if (radioButtonDemandaPoisson.Checked)
+                {
+                    distribucionDemanda = "Exponencial Poisson ( u =" + mediaExp + " )";
+                    demanda = Math.Round(GenerarNumeroDistPoisson(randomDemanda, double.Parse(txtMediaExp.Text)));
+                }
 
-                // Se determinan faltantes
+                // EL COSTO ES SOBRE LA CANTIDAD DE ORDEN, NO DE LA DEMANDA
+                // como es costo, es negativo
+                costo = - (precioCompra * cantidadAPedir);
+                //costo = precioCompra * demanda;
+
                 //var ventasPerdidasEnElDia = cantidadAPedir >= demanda ? cantidadAPedir - demanda : demanda - cantidadAPedir;
 
-                // Si la cantidad es positiva, tengo que devolver
-                // Si es negativa, tengo costo de utilidad
-                // Si es cero, no tengo costo
-               
                 ventasPerdidasEnElDia = cantidadAPedir - demanda;
+
+
+                costoReembolso = 0;
+                costoUtilidadDia = 0;
 
                 if (ventasPerdidasEnElDia > 0)
                 {
-                    costoReembolso = precioReembolso * ventasPerdidasEnElDia;
+                    // Si la cantidad es positiva, tengo que devolver periodicos
+                    //ventasPerdidasReembolso+=Math.Abs(ventasPerdidasEnElDia);
+
+                    ventasPerdidasReembolso = double.Parse(rowBefore.Cells["VentasPerdidasReembolso"].Value.ToString()) + Math.Abs(ventasPerdidasEnElDia);
+
+                    // el costo reembolso, es positivo ya que es un ingreso
+                    costoReembolso = precioReembolso * Math.Abs(ventasPerdidasEnElDia);
                 }
                 if (ventasPerdidasEnElDia < 0)
                 {
-                    costoUtilidadDia = costoUtilidad * -(ventasPerdidasEnElDia);
+                    // Si es negativa, tengo costo de utilidad (costo de oportunidad)
+                    // el costo de utilidad es negativo, ya que es perdida
+                    //ventasPerdidasUtilidad+= Math.Abs(ventasPerdidasEnElDia);
+                    ventasPerdidasUtilidad = double.Parse(rowBefore.Cells["VentasPerdidasUtilidad"].Value.ToString()) + Math.Abs(ventasPerdidasEnElDia);
+
+                    costoUtilidadDia = -(costoUtilidad * Math.Abs(ventasPerdidasEnElDia));
+                }
+                if (ventasPerdidasEnElDia == 0)
+                {
+                    // Si es cero, no tengo costo 
                 }
 
                 // Acumulado = este + el anterior
+
+                cantidadOrdenAcumulado = double.Parse(rowBefore.Cells["CantidadOrdenAcumulado"].Value.ToString()) + cantidadAPedir;
+                demandaAcumulada = double.Parse(rowBefore.Cells["DemandaAcumulada"].Value.ToString()) + demanda;
+
                 //costoCompraAcumulado = double.Parse(rowBefore.Cells["CostoCompraAcumulado"].Value.ToString()) + costo;
                 costoCompraAcumulado = Convert.ToDouble(rowBefore.Cells["CostoCompraAcumulado"].Value.ToString().Replace("$ ", "")) + costo;
                 costoReembolsoAcumulado = double.Parse(rowBefore.Cells["ReembolsoAcumulado"].Value.ToString().Replace("$ ", "")) + costoReembolso;
                 costoUtilidadAcumulado = double.Parse(rowBefore.Cells["CostoUtilidadAcumulado"].Value.ToString().Replace("$ ", "")) + costoUtilidadDia;
                 
-
-                costoDiario = -costo + costoReembolso - costoUtilidadDia;
+                costoDiario = costo + costoReembolso + costoUtilidadDia;
                 costoDiarioAcumulado = double.Parse(rowBefore.Cells["CostoDiarioAcumulado"].Value.ToString().Replace("$ ", "")) + costoDiario;
-
-                // Se calcula la demanda por día y el costo
 
                 // Costo promedio diario
                 // promedio = (1/n) * [ (n-1) * promedio fila anterior + valor costo diario actual ]
                 promedioDiaAnterior = double.Parse(rowBefore.Cells["CostoPromedio"].Value.ToString().Replace("$ ", ""));
-
                 costoPromedio = (((dia - 1) * promedioDiaAnterior) + costoDiario) / dia;
 
                 // Se agregan los datos a la fila nueva
                 idx = dataGridViewSimulacion.Rows.Add();
                 row = dataGridViewSimulacion.Rows[idx];
                 row.Cells["NroDia"].Value = dia;
-                row.Cells["RandomCantidadOrden"].Value = randomCantidadOrden;
+                row.Cells["RandomCantidadOrden"].Value = Math.Round(randomCantidadOrden, 5);
                 row.Cells["CantidadOrden"].Value = cantidadAPedir;
+                row.Cells["CantidadOrdenAcumulado"].Value = cantidadOrdenAcumulado;              
                 row.Cells["RandomDemanda"].Value = Math.Round(randomDemanda, 5);
                 row.Cells["Demanda"].Value = demanda;
-                row.Cells["PrecioCompra"].Value = Math.Round(costo, 5).ToString("C3", CultureInfo.CurrentCulture);
-                row.Cells["CostoCompraAcumulado"].Value = Math.Round(costoCompraAcumulado, 5).ToString("C3", CultureInfo.CurrentCulture);
-                row.Cells["VentasPerdidas"].Value = ventasPerdidasEnElDia;
-                row.Cells["Reembolso"].Value = Math.Round(costoReembolso, 5).ToString("C3", CultureInfo.CurrentCulture);
-                row.Cells["ReembolsoAcumulado"].Value = Math.Round(costoReembolsoAcumulado, 5).ToString("C3", CultureInfo.CurrentCulture);
-                row.Cells["CostoUtilidad"].Value = Math.Round(costoUtilidadDia, 5).ToString("C3", CultureInfo.CurrentCulture);
-                row.Cells["CostoUtilidadAcumulado"].Value = Math.Round(costoUtilidadAcumulado, 5).ToString("C3", CultureInfo.CurrentCulture);
-                row.Cells["CostoDiario"].Value = Math.Round(costoDiario, 5).ToString("C3", CultureInfo.CurrentCulture);
-                row.Cells["CostoDiarioAcumulado"].Value = Math.Round(costoDiarioAcumulado, 5).ToString("C3", CultureInfo.CurrentCulture);
-                row.Cells["CostoPromedio"].Value = Math.Round(costoPromedio, 5).ToString("C3", CultureInfo.CurrentCulture);
+                row.Cells["DemandaAcumulada"].Value = demandaAcumulada;
+                row.Cells["PrecioCompra"].Value = Math.Round(costo, 5).ToString("C", CultureInfo.CurrentCulture);
+                row.Cells["CostoCompraAcumulado"].Value = Math.Round(costoCompraAcumulado, 5).ToString("C", CultureInfo.CurrentCulture);
+                row.Cells["VentasPerdidas"].Value = Math.Abs(ventasPerdidasEnElDia);
+                row.Cells["VentasPerdidasReembolso"].Value = Math.Abs(ventasPerdidasReembolso);
+                row.Cells["VentasPerdidasUtilidad"].Value = Math.Abs(ventasPerdidasUtilidad);
+                row.Cells["Reembolso"].Value = Math.Round(costoReembolso, 5).ToString("C", CultureInfo.CurrentCulture);
+                row.Cells["ReembolsoAcumulado"].Value = Math.Round(costoReembolsoAcumulado, 5).ToString("C", CultureInfo.CurrentCulture);
+                row.Cells["CostoUtilidad"].Value = Math.Round(costoUtilidadDia, 5).ToString("C", CultureInfo.CurrentCulture);
+                row.Cells["CostoUtilidadAcumulado"].Value = Math.Round(costoUtilidadAcumulado, 5).ToString("C", CultureInfo.CurrentCulture);
+                row.Cells["CostoDiario"].Value = Math.Round(costoDiario, 5).ToString("C", CultureInfo.CurrentCulture);
+                row.Cells["CostoDiarioAcumulado"].Value = Math.Round(costoDiarioAcumulado, 5).ToString("C", CultureInfo.CurrentCulture);
+                row.Cells["CostoPromedio"].Value = Math.Round(costoPromedio, 5).ToString("C", CultureInfo.CurrentCulture);
 
                 if (desde <= dia && dia <= hasta )
                 {
@@ -265,20 +412,24 @@ namespace FinalSIM_Ejercicio17
                     var nr = dataGridViewGrilla.Rows.Add();
                     var rowGrilla = dataGridViewGrilla.Rows[nr];
                     rowGrilla.Cells["NDiaGrilla"].Value = dia;
-                    rowGrilla.Cells["RandomCantidadOrdenGrilla"].Value = randomCantidadOrden;
+                    rowGrilla.Cells["RandomCantidadOrdenGrilla"].Value = Math.Round(randomCantidadOrden, 5);
                     rowGrilla.Cells["CantidadOrdenGrilla"].Value = cantidadAPedir;
+                    rowGrilla.Cells["CantidadOrdenAcumGrilla"].Value = cantidadOrdenAcumulado;
                     rowGrilla.Cells["RandomDemandaGrilla"].Value = Math.Round(randomDemanda, 5);
                     rowGrilla.Cells["DemandaGrilla"].Value = demanda;
-                    rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5);
-                    rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = Math.Round(costoCompraAcumulado, 5);
-                    rowGrilla.Cells["VentasPerdidasGrilla"].Value = ventasPerdidasEnElDia;
-                    rowGrilla.Cells["ReembolsoGrilla"].Value = Math.Round(costoReembolso, 5);
-                    rowGrilla.Cells["ReembolsoAcumuladoGrilla"].Value = Math.Round(costoReembolsoAcumulado, 5);
-                    rowGrilla.Cells["CostoUtilidadGrilla"].Value = Math.Round(costoUtilidadDia, 5);
-                    rowGrilla.Cells["CostoUtilidadAcumuladoGrilla"].Value = Math.Round(costoUtilidadAcumulado, 5);
-                    rowGrilla.Cells["CostoDiarioGrilla"].Value = Math.Round(costoDiario, 5);
-                    rowGrilla.Cells["CostoDiarioAcumuladoGrilla"].Value = Math.Round(costoDiarioAcumulado, 5);
-                    rowGrilla.Cells["CostoPromedioGrilla"].Value = Math.Round(costoPromedio, 5);
+                    rowGrilla.Cells["DemandaAcumGrilla"].Value = demandaAcumulada;
+                    rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = Math.Round(costoCompraAcumulado, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["VentasPerdidasGrilla"].Value = Math.Abs(ventasPerdidasEnElDia);
+                    rowGrilla.Cells["VentasPerdidasReembolsoGrilla"].Value = Math.Abs(ventasPerdidasReembolso);
+                    rowGrilla.Cells["VentasPerdidasUtilidadGrilla"].Value = Math.Abs(ventasPerdidasUtilidad);
+                    rowGrilla.Cells["ReembolsoGrilla"].Value = Math.Round(costoReembolso, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["ReembolsoAcumuladoGrilla"].Value = Math.Round(costoReembolsoAcumulado, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoUtilidadGrilla"].Value = Math.Round(costoUtilidadDia, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoUtilidadAcumuladoGrilla"].Value = Math.Round(costoUtilidadAcumulado, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoDiarioGrilla"].Value = Math.Round(costoDiario, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoDiarioAcumuladoGrilla"].Value = Math.Round(costoDiarioAcumulado, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoPromedioGrilla"].Value = Math.Round(costoPromedio, 5).ToString("C", CultureInfo.CurrentCulture); ;
                 }
 
                 if (dia+1 == diasTiempoTotal && !(hasta >= diasTiempoTotal) )
@@ -287,20 +438,24 @@ namespace FinalSIM_Ejercicio17
                     var nr = dataGridViewGrilla.Rows.Add();
                     var rowGrilla = dataGridViewGrilla.Rows[nr];
                     rowGrilla.Cells["NDiaGrilla"].Value = dia;
-                    rowGrilla.Cells["RandomCantidadOrdenGrilla"].Value = randomCantidadOrden;
+                    rowGrilla.Cells["RandomCantidadOrdenGrilla"].Value = Math.Round(randomCantidadOrden, 5);
                     rowGrilla.Cells["CantidadOrdenGrilla"].Value = cantidadAPedir;
+                    rowGrilla.Cells["CantidadOrdenAcumGrilla"].Value = cantidadOrdenAcumulado;
                     rowGrilla.Cells["RandomDemandaGrilla"].Value = Math.Round(randomDemanda, 5);
                     rowGrilla.Cells["DemandaGrilla"].Value = demanda;
-                    rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5);
-                    rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = Math.Round(costoCompraAcumulado, 5);
-                    rowGrilla.Cells["VentasPerdidasGrilla"].Value = ventasPerdidasEnElDia;
-                    rowGrilla.Cells["ReembolsoGrilla"].Value = Math.Round(costoReembolso, 5);
-                    rowGrilla.Cells["ReembolsoAcumuladoGrilla"].Value = Math.Round(costoReembolsoAcumulado, 5);
-                    rowGrilla.Cells["CostoUtilidadGrilla"].Value = Math.Round(costoUtilidadDia, 5);
-                    rowGrilla.Cells["CostoUtilidadAcumuladoGrilla"].Value = Math.Round(costoUtilidadAcumulado, 5);
-                    rowGrilla.Cells["CostoDiarioGrilla"].Value = Math.Round(costoDiario, 5);
-                    rowGrilla.Cells["CostoDiarioAcumuladoGrilla"].Value = Math.Round(costoDiarioAcumulado, 5);
-                    rowGrilla.Cells["CostoPromedioGrilla"].Value = Math.Round(costoPromedio, 5);
+                    rowGrilla.Cells["DemandaAcumGrilla"].Value = demandaAcumulada;
+                    rowGrilla.Cells["PrecioCompraGrilla"].Value = Math.Round(costo, 5).ToString("C", CultureInfo.CurrentCulture);
+                    rowGrilla.Cells["CostoCompraAcumuladoGrilla"].Value = Math.Round(costoCompraAcumulado, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["VentasPerdidasGrilla"].Value = Math.Abs(ventasPerdidasEnElDia);
+                    rowGrilla.Cells["VentasPerdidasReembolsoGrilla"].Value = Math.Abs(ventasPerdidasReembolso);
+                    rowGrilla.Cells["VentasPerdidasUtilidadGrilla"].Value = Math.Abs(ventasPerdidasUtilidad);
+                    rowGrilla.Cells["ReembolsoGrilla"].Value = Math.Round(costoReembolso, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["ReembolsoAcumuladoGrilla"].Value = Math.Round(costoReembolsoAcumulado, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoUtilidadGrilla"].Value = Math.Round(costoUtilidadDia, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoUtilidadAcumuladoGrilla"].Value = Math.Round(costoUtilidadAcumulado, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoDiarioGrilla"].Value = Math.Round(costoDiario, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoDiarioAcumuladoGrilla"].Value = Math.Round(costoDiarioAcumulado, 5).ToString("C", CultureInfo.CurrentCulture); ;
+                    rowGrilla.Cells["CostoPromedioGrilla"].Value = Math.Round(costoPromedio, 5).ToString("C", CultureInfo.CurrentCulture); ;
                 }
 
                 dia++;
@@ -316,12 +471,24 @@ namespace FinalSIM_Ejercicio17
             fila.Cells["FechaHora"].Value = DateTime.Now;
             fila.Cells["Politica"].Value = opPoliticaA.Checked ? "Politica A" : "Politica B";
             fila.Cells["CantidadDias"].Value = diasTiempoTotal;
-            
-            fila.Cells["PrecioCompraPolitica"].Value = precioCompra;
-            fila.Cells["PrecioReembolsoPolitica"].Value = precioReembolso;
-            fila.Cells["CostoUtilidadPolitica"].Value = costoUtilidad;
 
-            fila.Cells["CostoPromedioPolitica"].Value = costoPromedio;
+            fila.Cells["OrdenesTotales"].Value = cantidadOrdenAcumulado;
+
+            fila.Cells["DistribucionDemanda"].Value = distribucionDemanda;
+            fila.Cells["DemandaTotal"].Value = demandaAcumulada;
+
+            fila.Cells["DemandaInicialPolitica"].Value = demandaAnterior;
+            fila.Cells["VentasPerdidasInicialPolitica"].Value = ventasPerdidas;
+
+            fila.Cells["VentasTotalesPerdidasReembolso"].Value = ventasPerdidasReembolso;
+            fila.Cells["VentasTotalesPerdidasUtilidad"].Value = ventasPerdidasUtilidad;
+
+            fila.Cells["PrecioCompraPolitica"].Value = precioCompra.ToString("C", CultureInfo.CurrentCulture);
+            fila.Cells["PrecioReembolsoPolitica"].Value = precioReembolso.ToString("C", CultureInfo.CurrentCulture);
+            fila.Cells["CostoUtilidadPolitica"].Value = costoUtilidad.ToString("C", CultureInfo.CurrentCulture);
+
+            fila.Cells["CostoPromedioPolitica"].Value = costoPromedio.ToString("C", CultureInfo.CurrentCulture);
+            fila.Cells["CostoTotalPolitica"].Value = costoDiarioAcumulado.ToString("C", CultureInfo.CurrentCulture); ;
 
             progressBar.Visible = false ;
             //dataGridViewSimulacion.Visible = true;
@@ -393,46 +560,46 @@ namespace FinalSIM_Ejercicio17
             return demanda;
         }
 
-        public Decimal GenerarNumeroDistUniforme(double rnd, Decimal a, Decimal b)
+        public double GenerarNumeroDistUniforme(double rnd, double a, double b)
         {
-            Decimal nro = Convert.ToDecimal(rnd);
-            Decimal nroAleat = a + (nro * (b - a));                
+            double nro = Convert.ToDouble(rnd);
+            double nroAleat = a + (nro * (b - a));                
             return nroAleat;
         }
 
-        public Decimal GenerarNumeroDistNormal(double rnd, Decimal media, Decimal desviacion)
+        public double GenerarNumeroDistNormal(double rnd, double media, double desviacion)
         {
             //Método de convolución
-            Decimal suma = 0;
+            double suma = 0;
             for (int j = 0; j < 12; j++)
             {
-                Decimal aleat = Convert.ToDecimal(rnd);
-                suma = suma + aleat;
+                double aleat = Convert.ToDouble(rnd);
+                suma += aleat;
             }
-            Decimal z = ((suma - 6) * desviacion) + media;        
+            double z = ((suma - 6) * desviacion) + media;        
             return z;
         }
 
 
-        public Decimal GenerarNumeroDistExponencial(double rnd, Decimal media)
+        public double GenerarNumeroDistExponencial(double rnd, double media)
         {
-            Decimal nro = Convert.ToDecimal(rnd);
-            Decimal lambda = 1 / media;
-            Decimal log = Convert.ToDecimal(Math.Log(Convert.ToDouble(1 - nro)));
-            Decimal nroAleat = (-1 / lambda) * log;
+            double nro = (rnd);
+            double lambda = 1 / media;
+            double log = (Math.Log(Convert.ToDouble(1 - nro)));
+            double nroAleat = (-1 / lambda) * log;
             return nroAleat;
         }
 
-        public Decimal GenerarNumeroDistPoisson(double rnd, Decimal lambda)
-        {              
-            Double a = Math.Pow((Math.E), Convert.ToDouble(-lambda));
-            Double b = 1;
-            Decimal i = -1;
+        public double GenerarNumeroDistPoisson(double rnd, double lambda)
+        {   // Media = Lambda           
+            double a = Math.Pow((Math.E), (-lambda));
+            double b = 1;
+            double i = -1;
             do
             {
-                Double xi = rnd;
-                b = b * xi;
-                i = i + 1;
+                double xi = rnd;
+                b *= xi;
+                i++;
 
             } while (b > a);
                 
@@ -443,11 +610,13 @@ namespace FinalSIM_Ejercicio17
         {
             if (!opPoliticaB.Checked)
             {
-                groupBoxDistribucion.Visible = false;
+                //groupBoxDistribucion.Visible = false;
+                groupBoxOrden.Visible = false;
                 return;
             }
 
-            groupBoxDistribucion.Visible = true;
+            //groupBoxDistribucion.Visible = true;
+            groupBoxOrden.Visible = true;
         }
 
         private void textBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -501,6 +670,98 @@ namespace FinalSIM_Ejercicio17
         private void tabPage4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButtonDemandaUniforme_CheckedChanged(object sender, EventArgs e)
+        {
+            if (!radioButtonDemandaUniforme.Checked) { 
+            
+            }
+
+
+            if (!radioButtonDemandaUniforme.Checked)
+            {
+                labelA.Visible = false;
+                txtA.Visible = false;
+                labelB.Visible = false;
+                txtB.Visible = false;
+            } else
+            {
+                labelA.Visible = true;
+                txtA.Visible = true;
+                labelB.Visible = true;
+                txtB.Visible = true;
+            }
+
+            if (!radioButtonDemandaNormal.Checked)
+            {
+                labelMediaN.Visible = false;
+                txtMediaN.Visible = false;
+                labelDesvN.Visible = false;
+                txtDesvN.Visible = false;
+            }
+            else
+            {
+                labelMediaN.Visible = true;
+                txtMediaN.Visible = true;
+                labelDesvN.Visible = true;
+                txtDesvN.Visible = true;
+            }
+
+            if (!(radioButtonDemandaPoisson.Checked || radioButtonDemandaExp.Checked))
+            {
+                labelMediaExp.Visible = false;
+                txtMediaExp.Visible = false;
+            }
+            else
+            {
+                labelMediaExp.Visible = true;
+                txtMediaExp.Visible = true;
+            }
+
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            // Limpiar campos
+            txtPrecioCompra.Text = "";
+            txtPrecioReembolso.Text = "";
+            txtCostoUtilidad.Text = "";
+            txtDemandaAnteriorInicial.Text = "";
+            txtVentasPerdidas.Text = "";
+            txtCantidadOrden.Text = "";
+            txtA.Text = "";
+            txtB.Text = "";
+            txtMediaN.Text = "";
+            txtDesvN.Text = "";
+            txtMediaExp.Text = "";
+            txtTiempoTotalSimulacion.Text = "";
+            txtDesde.Text = "";
+            txtDiasAMostrar.Text = "";
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            txtPrecioCompra.Text = "0,8";
+            txtPrecioReembolso.Text = "0,2";
+            txtCostoUtilidad.Text = "0,4";
+            txtDemandaAnteriorInicial.Text = "20";
+            txtVentasPerdidas.Text = "3";
+            txtCantidadOrden.Text = "21";
+            txtA.Text = "10";
+            txtB.Text = "30";
+            txtMediaN.Text = "20";
+            txtDesvN.Text = "5";
+            txtMediaExp.Text = "5";
+            txtTiempoTotalSimulacion.Text = "200";
+            txtDesde.Text = "0";
+            txtDiasAMostrar.Text = "200";
         }
     }
 
