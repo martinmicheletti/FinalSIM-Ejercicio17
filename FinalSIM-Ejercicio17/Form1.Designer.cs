@@ -86,7 +86,6 @@ namespace FinalSIM_Ejercicio17
             this.CostoDiarioAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CostoPromedioGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewResultados = new System.Windows.Forms.DataGridView();
             this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -143,6 +142,7 @@ namespace FinalSIM_Ejercicio17
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacion)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -425,7 +425,7 @@ namespace FinalSIM_Ejercicio17
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage4);
-            this.tabControl.Location = new System.Drawing.Point(-1, 200);
+            this.tabControl.Location = new System.Drawing.Point(0, 211);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(1807, 618);
@@ -571,7 +571,6 @@ namespace FinalSIM_Ejercicio17
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataGridViewSimulacion);
-            this.tabPage1.Controls.Add(this.progressBar);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -579,13 +578,6 @@ namespace FinalSIM_Ejercicio17
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Simulacion";
             this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // progressBar
-            // 
-            this.progressBar.Location = new System.Drawing.Point(396, 130);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(767, 24);
-            this.progressBar.TabIndex = 1;
             // 
             // tabPage2
             // 
@@ -946,7 +938,7 @@ namespace FinalSIM_Ejercicio17
             this.groupBox5.Controls.Add(this.radioButtonTablaEnunciado);
             this.groupBox5.Controls.Add(this.radioButtonDemandaUniforme);
             this.groupBox5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.groupBox5.Location = new System.Drawing.Point(217, 6);
+            this.groupBox5.Location = new System.Drawing.Point(217, 17);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(339, 188);
             this.groupBox5.TabIndex = 22;
@@ -1157,6 +1149,13 @@ namespace FinalSIM_Ejercicio17
             this.label13.TabIndex = 35;
             this.label13.Text = "09/12/2021";
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(344, 313);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(1053, 23);
+            this.progressBar.TabIndex = 36;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1176,6 +1175,7 @@ namespace FinalSIM_Ejercicio17
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.tabControl);
             this.Controls.Add(this.button1);
+            this.Controls.Add(this.progressBar);
             this.Name = "Form1";
             this.Text = "Examen Final Simulacion - Ejercicio 17 ";
             this.Load += new System.EventHandler(this.OnLoadEjercicio17);
@@ -1229,7 +1229,7 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.DataGridView dataGridViewResultados;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ProgressBar progressBar;
+        //private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.TextBox txtDesde;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtDiasAMostrar;
@@ -1320,6 +1320,7 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoDiarioGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoDiarioAcumuladoGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoPromedioGrilla;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
 
