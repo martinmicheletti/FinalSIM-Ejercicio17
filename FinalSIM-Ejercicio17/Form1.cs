@@ -33,7 +33,14 @@ namespace FinalSIM_Ejercicio17
                 txtDesde.Text.ToString() == "" ||
                 txtDiasAMostrar.Text.ToString() == "")
             {
+                
                 MessageBox.Show("Por favor, verifique el ingreso de todos los datos", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (double.Parse(txtDesde.Text.ToString()) > double.Parse(txtTiempoTotalSimulacion.Text.ToString()))
+            {
+                MessageBox.Show("Por favor, verifique los datos ingresados", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
 
@@ -72,6 +79,14 @@ namespace FinalSIM_Ejercicio17
 
             double aDemanda = double.Parse(txtA.Text.ToString());
             double bDemanda = double.Parse(txtB.Text.ToString());
+
+            if (aDemanda > bDemanda)
+            {
+                double a = aDemanda;
+                double b = bDemanda;
+                bDemanda = a;
+                aDemanda = b;
+            }
 
             double mediaNormal = double.Parse(txtMediaN.Text.ToString());
             double desvNormal = double.Parse(txtDesvN.Text.ToString());
@@ -304,12 +319,12 @@ namespace FinalSIM_Ejercicio17
                 }
                 if (radioButtonDemandaUniforme.Checked)
                 {
-                    distribucionDemanda = "Uniforme ( "+aDemanda+ ";" + bDemanda + " )";
+                    distribucionDemanda = "Uniforme ("+aDemanda+ ";" + bDemanda + ")";
                     demanda = Math.Round(GenerarNumeroDistUniforme(randomDemanda, double.Parse(txtA.Text), double.Parse(txtB.Text)));
                 }
                 if (radioButtonDemandaNormal.Checked)
                 {
-                    distribucionDemanda = "Normal ( " + mediaNormal + ";" + desvNormal + " )";
+                    distribucionDemanda = "Normal (" + mediaNormal + ";" + desvNormal + ")";
                     do
                     {
                         randomDemanda = random.NextDouble();
@@ -319,12 +334,12 @@ namespace FinalSIM_Ejercicio17
                 }
                 if (radioButtonDemandaExp.Checked)
                 {
-                    distribucionDemanda = "Exponencial Negativa ( u =" + mediaExp + " )";
+                    distribucionDemanda = "Exponencial Negativa (u =" + mediaExp + ")";
                     demanda = Math.Round(GenerarNumeroDistExponencial(randomDemanda, double.Parse(txtMediaExp.Text)));
                 }
                 if (radioButtonDemandaPoisson.Checked)
                 {
-                    distribucionDemanda = "Exponencial Poisson ( u =" + mediaExp + " )";
+                    distribucionDemanda = "Poisson (u =" + mediaExp + ")";
                     demanda = Math.Round(GenerarNumeroDistPoisson(randomDemanda, double.Parse(txtMediaExp.Text)));
                 }
 
@@ -336,7 +351,6 @@ namespace FinalSIM_Ejercicio17
                 //var ventasPerdidasEnElDia = cantidadAPedir >= demanda ? cantidadAPedir - demanda : demanda - cantidadAPedir;
 
                 ventasPerdidasEnElDia = cantidadAPedir - demanda;
-
 
                 costoReembolso = 0;
                 costoUtilidadDia = 0;
@@ -469,7 +483,7 @@ namespace FinalSIM_Ejercicio17
             var fila = dataGridViewResultados.Rows[n];
             fila.Cells["N"].Value = n+1;
             fila.Cells["FechaHora"].Value = DateTime.Now;
-            fila.Cells["Politica"].Value = opPoliticaA.Checked ? "Politica A" : "Politica B";
+            fila.Cells["Politica"].Value = opPoliticaA.Checked ? "Politica A" : radioButtonCantidadFija.Checked ? "Politica B - Cant fija: " + txtCantidadOrden.Text : "Politica B - Aleatoria enunciado";
             fila.Cells["CantidadDias"].Value = diasTiempoTotal;
 
             fila.Cells["OrdenesTotales"].Value = cantidadOrdenAcumulado;

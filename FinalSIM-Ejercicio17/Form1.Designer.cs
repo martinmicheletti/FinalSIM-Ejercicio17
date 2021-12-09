@@ -31,25 +31,6 @@ namespace FinalSIM_Ejercicio17
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridViewSimulacion = new System.Windows.Forms.DataGridView();
-            this.NroDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RandomCantidadOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadOrdenAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RandomDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DemandaAcumulada = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasReembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoCompraAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Reembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReembolsoAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoUtilidadAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoDiario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoDiarioAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoPromedio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.txtPrecioCompra = new System.Windows.Forms.TextBox();
             this.txtPrecioReembolso = new System.Windows.Forms.TextBox();
@@ -66,44 +47,9 @@ namespace FinalSIM_Ejercicio17
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridViewGrilla = new System.Windows.Forms.DataGridView();
-            this.NDiaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RandomCantidadOrdenGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadOrdenGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadOrdenAcumGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RandomDemandaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DemandaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DemandaAcumGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasReembolsoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasUtilidadGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioCompraGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoCompraAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReembolsoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ReembolsoAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoUtilidadGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoUtilidadAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoDiarioGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoDiarioAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoPromedioGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.dataGridViewResultados = new System.Windows.Forms.DataGridView();
-            this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FechaHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Politica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CantidadDias = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OrdenesTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DistribucionDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DemandaTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DemandaInicialPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasPerdidasInicialPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasTotalesPerdidasReembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VentasTotalesPerdidasUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioCompraPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PrecioReembolsoPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoUtilidadPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoPromedioPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CostoTotalPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.opPoliticaA = new System.Windows.Forms.RadioButton();
@@ -143,6 +89,60 @@ namespace FinalSIM_Ejercicio17
             this.button3 = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.NDiaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RandomCantidadOrdenGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadOrdenGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadOrdenAcumGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RandomDemandaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DemandaGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DemandaAcumGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasReembolsoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasUtilidadGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompraGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoCompraAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReembolsoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReembolsoAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidadGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidadAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoDiarioGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoDiarioAcumuladoGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoPromedioGrilla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NroDia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RandomCantidadOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadOrden = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadOrdenAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RandomDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Demanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DemandaAcumulada = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasReembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompra = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoCompraAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReembolsoAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidadAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoDiario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoDiarioAcumulado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoPromedio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.N = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FechaHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantidadDias = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Politica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DistribucionDemanda = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DemandaInicialPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasPerdidasInicialPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioCompraPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoUtilidadPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PrecioReembolsoPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OrdenesTotales = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DemandaTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasTotalesPerdidasReembolso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VentasTotalesPerdidasUtilidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoPromedioPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CostoTotalPolitica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSimulacion)).BeginInit();
             this.tabControl.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -190,102 +190,6 @@ namespace FinalSIM_Ejercicio17
             this.dataGridViewSimulacion.RowTemplate.Height = 25;
             this.dataGridViewSimulacion.Size = new System.Drawing.Size(1793, 584);
             this.dataGridViewSimulacion.TabIndex = 0;
-            // 
-            // NroDia
-            // 
-            this.NroDia.HeaderText = "N° Dia";
-            this.NroDia.Name = "NroDia";
-            // 
-            // RandomCantidadOrden
-            // 
-            this.RandomCantidadOrden.HeaderText = "Random Cantidad Orden";
-            this.RandomCantidadOrden.Name = "RandomCantidadOrden";
-            this.RandomCantidadOrden.Visible = false;
-            // 
-            // CantidadOrden
-            // 
-            this.CantidadOrden.HeaderText = "Cantidad de Orden";
-            this.CantidadOrden.Name = "CantidadOrden";
-            // 
-            // CantidadOrdenAcumulado
-            // 
-            this.CantidadOrdenAcumulado.HeaderText = "Cantidad de Orden Acumulado";
-            this.CantidadOrdenAcumulado.Name = "CantidadOrdenAcumulado";
-            // 
-            // RandomDemanda
-            // 
-            this.RandomDemanda.HeaderText = "Random Demanda";
-            this.RandomDemanda.Name = "RandomDemanda";
-            // 
-            // Demanda
-            // 
-            this.Demanda.HeaderText = "Demanda";
-            this.Demanda.Name = "Demanda";
-            // 
-            // DemandaAcumulada
-            // 
-            this.DemandaAcumulada.HeaderText = "Demanda Acumulada";
-            this.DemandaAcumulada.Name = "DemandaAcumulada";
-            // 
-            // VentasPerdidas
-            // 
-            this.VentasPerdidas.HeaderText = "Ventas Perdidas";
-            this.VentasPerdidas.Name = "VentasPerdidas";
-            // 
-            // VentasPerdidasReembolso
-            // 
-            this.VentasPerdidasReembolso.HeaderText = "Ventas Perdidas Reembolso";
-            this.VentasPerdidasReembolso.Name = "VentasPerdidasReembolso";
-            // 
-            // VentasPerdidasUtilidad
-            // 
-            this.VentasPerdidasUtilidad.HeaderText = "Ventas Perdidas Utilidad";
-            this.VentasPerdidasUtilidad.Name = "VentasPerdidasUtilidad";
-            // 
-            // PrecioCompra
-            // 
-            this.PrecioCompra.HeaderText = "Costo Compra";
-            this.PrecioCompra.Name = "PrecioCompra";
-            // 
-            // CostoCompraAcumulado
-            // 
-            this.CostoCompraAcumulado.HeaderText = "Costo de Compra Acumulado";
-            this.CostoCompraAcumulado.Name = "CostoCompraAcumulado";
-            // 
-            // Reembolso
-            // 
-            this.Reembolso.HeaderText = "Reembolso";
-            this.Reembolso.Name = "Reembolso";
-            // 
-            // ReembolsoAcumulado
-            // 
-            this.ReembolsoAcumulado.HeaderText = "Reembolso Acumulado";
-            this.ReembolsoAcumulado.Name = "ReembolsoAcumulado";
-            // 
-            // CostoUtilidad
-            // 
-            this.CostoUtilidad.HeaderText = "Costo de Utilidad";
-            this.CostoUtilidad.Name = "CostoUtilidad";
-            // 
-            // CostoUtilidadAcumulado
-            // 
-            this.CostoUtilidadAcumulado.HeaderText = "Costo Utilidad Acumulado";
-            this.CostoUtilidadAcumulado.Name = "CostoUtilidadAcumulado";
-            // 
-            // CostoDiario
-            // 
-            this.CostoDiario.HeaderText = "Costo Diario";
-            this.CostoDiario.Name = "CostoDiario";
-            // 
-            // CostoDiarioAcumulado
-            // 
-            this.CostoDiarioAcumulado.HeaderText = "Costo Diario Acumulado";
-            this.CostoDiarioAcumulado.Name = "CostoDiarioAcumulado";
-            // 
-            // CostoPromedio
-            // 
-            this.CostoPromedio.HeaderText = "Costo Promedio";
-            this.CostoPromedio.Name = "CostoPromedio";
             // 
             // button1
             // 
@@ -472,102 +376,6 @@ namespace FinalSIM_Ejercicio17
             this.dataGridViewGrilla.Size = new System.Drawing.Size(1799, 590);
             this.dataGridViewGrilla.TabIndex = 1;
             // 
-            // NDiaGrilla
-            // 
-            this.NDiaGrilla.HeaderText = "N° Dia";
-            this.NDiaGrilla.Name = "NDiaGrilla";
-            // 
-            // RandomCantidadOrdenGrilla
-            // 
-            this.RandomCantidadOrdenGrilla.HeaderText = "Random Cantidad Orden";
-            this.RandomCantidadOrdenGrilla.Name = "RandomCantidadOrdenGrilla";
-            this.RandomCantidadOrdenGrilla.Visible = false;
-            // 
-            // CantidadOrdenGrilla
-            // 
-            this.CantidadOrdenGrilla.HeaderText = "Cantidad de Orden";
-            this.CantidadOrdenGrilla.Name = "CantidadOrdenGrilla";
-            // 
-            // CantidadOrdenAcumGrilla
-            // 
-            this.CantidadOrdenAcumGrilla.HeaderText = "Cantidad de Orden Acumulado";
-            this.CantidadOrdenAcumGrilla.Name = "CantidadOrdenAcumGrilla";
-            // 
-            // RandomDemandaGrilla
-            // 
-            this.RandomDemandaGrilla.HeaderText = "Random Demanda";
-            this.RandomDemandaGrilla.Name = "RandomDemandaGrilla";
-            // 
-            // DemandaGrilla
-            // 
-            this.DemandaGrilla.HeaderText = "Demanda";
-            this.DemandaGrilla.Name = "DemandaGrilla";
-            // 
-            // DemandaAcumGrilla
-            // 
-            this.DemandaAcumGrilla.HeaderText = "Demanda Acumulada";
-            this.DemandaAcumGrilla.Name = "DemandaAcumGrilla";
-            // 
-            // VentasPerdidasGrilla
-            // 
-            this.VentasPerdidasGrilla.HeaderText = "Ventas Perdidas";
-            this.VentasPerdidasGrilla.Name = "VentasPerdidasGrilla";
-            // 
-            // VentasPerdidasReembolsoGrilla
-            // 
-            this.VentasPerdidasReembolsoGrilla.HeaderText = "Ventas Perdidas Reembolso";
-            this.VentasPerdidasReembolsoGrilla.Name = "VentasPerdidasReembolsoGrilla";
-            // 
-            // VentasPerdidasUtilidadGrilla
-            // 
-            this.VentasPerdidasUtilidadGrilla.HeaderText = "Ventas Perdidas Utilidad";
-            this.VentasPerdidasUtilidadGrilla.Name = "VentasPerdidasUtilidadGrilla";
-            // 
-            // PrecioCompraGrilla
-            // 
-            this.PrecioCompraGrilla.HeaderText = "Costo Compra";
-            this.PrecioCompraGrilla.Name = "PrecioCompraGrilla";
-            // 
-            // CostoCompraAcumuladoGrilla
-            // 
-            this.CostoCompraAcumuladoGrilla.HeaderText = "Costo de Compra Acumulado";
-            this.CostoCompraAcumuladoGrilla.Name = "CostoCompraAcumuladoGrilla";
-            // 
-            // ReembolsoGrilla
-            // 
-            this.ReembolsoGrilla.HeaderText = "Reembolso";
-            this.ReembolsoGrilla.Name = "ReembolsoGrilla";
-            // 
-            // ReembolsoAcumuladoGrilla
-            // 
-            this.ReembolsoAcumuladoGrilla.HeaderText = "Reembolso Acumulado";
-            this.ReembolsoAcumuladoGrilla.Name = "ReembolsoAcumuladoGrilla";
-            // 
-            // CostoUtilidadGrilla
-            // 
-            this.CostoUtilidadGrilla.HeaderText = "Costo de Utilidad";
-            this.CostoUtilidadGrilla.Name = "CostoUtilidadGrilla";
-            // 
-            // CostoUtilidadAcumuladoGrilla
-            // 
-            this.CostoUtilidadAcumuladoGrilla.HeaderText = "Costo Utilidad Acumulado";
-            this.CostoUtilidadAcumuladoGrilla.Name = "CostoUtilidadAcumuladoGrilla";
-            // 
-            // CostoDiarioGrilla
-            // 
-            this.CostoDiarioGrilla.HeaderText = "Costo Diario";
-            this.CostoDiarioGrilla.Name = "CostoDiarioGrilla";
-            // 
-            // CostoDiarioAcumuladoGrilla
-            // 
-            this.CostoDiarioAcumuladoGrilla.HeaderText = "Costo Diario Acumulado";
-            this.CostoDiarioAcumuladoGrilla.Name = "CostoDiarioAcumuladoGrilla";
-            // 
-            // CostoPromedioGrilla
-            // 
-            this.CostoPromedioGrilla.HeaderText = "Costo Promedio";
-            this.CostoPromedioGrilla.Name = "CostoPromedioGrilla";
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.dataGridViewSimulacion);
@@ -597,18 +405,18 @@ namespace FinalSIM_Ejercicio17
             this.dataGridViewResultados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.N,
             this.FechaHora,
-            this.Politica,
             this.CantidadDias,
-            this.OrdenesTotales,
+            this.Politica,
             this.DistribucionDemanda,
-            this.DemandaTotal,
             this.DemandaInicialPolitica,
             this.VentasPerdidasInicialPolitica,
+            this.PrecioCompraPolitica,
+            this.CostoUtilidadPolitica,
+            this.PrecioReembolsoPolitica,
+            this.OrdenesTotales,
+            this.DemandaTotal,
             this.VentasTotalesPerdidasReembolso,
             this.VentasTotalesPerdidasUtilidad,
-            this.PrecioCompraPolitica,
-            this.PrecioReembolsoPolitica,
-            this.CostoUtilidadPolitica,
             this.CostoPromedioPolitica,
             this.CostoTotalPolitica});
             this.dataGridViewResultados.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -617,86 +425,6 @@ namespace FinalSIM_Ejercicio17
             this.dataGridViewResultados.RowTemplate.Height = 25;
             this.dataGridViewResultados.Size = new System.Drawing.Size(1793, 584);
             this.dataGridViewResultados.TabIndex = 0;
-            // 
-            // N
-            // 
-            this.N.HeaderText = "N";
-            this.N.Name = "N";
-            // 
-            // FechaHora
-            // 
-            this.FechaHora.HeaderText = "Fecha y hora";
-            this.FechaHora.Name = "FechaHora";
-            // 
-            // Politica
-            // 
-            this.Politica.HeaderText = "Politica";
-            this.Politica.Name = "Politica";
-            // 
-            // CantidadDias
-            // 
-            this.CantidadDias.HeaderText = "Cantidad de Dias";
-            this.CantidadDias.Name = "CantidadDias";
-            // 
-            // OrdenesTotales
-            // 
-            this.OrdenesTotales.HeaderText = "Cantidad Ordenes Totales";
-            this.OrdenesTotales.Name = "OrdenesTotales";
-            // 
-            // DistribucionDemanda
-            // 
-            this.DistribucionDemanda.HeaderText = "Distribucion Demanda";
-            this.DistribucionDemanda.Name = "DistribucionDemanda";
-            // 
-            // DemandaTotal
-            // 
-            this.DemandaTotal.HeaderText = "Demanda Total";
-            this.DemandaTotal.Name = "DemandaTotal";
-            // 
-            // DemandaInicialPolitica
-            // 
-            this.DemandaInicialPolitica.HeaderText = "Demanda Inicial ";
-            this.DemandaInicialPolitica.Name = "DemandaInicialPolitica";
-            // 
-            // VentasPerdidasInicialPolitica
-            // 
-            this.VentasPerdidasInicialPolitica.HeaderText = "Ventas Perdidas Iniciales";
-            this.VentasPerdidasInicialPolitica.Name = "VentasPerdidasInicialPolitica";
-            // 
-            // VentasTotalesPerdidasReembolso
-            // 
-            this.VentasTotalesPerdidasReembolso.HeaderText = "Ventas Totales Perdidas Reembolso";
-            this.VentasTotalesPerdidasReembolso.Name = "VentasTotalesPerdidasReembolso";
-            // 
-            // VentasTotalesPerdidasUtilidad
-            // 
-            this.VentasTotalesPerdidasUtilidad.HeaderText = "Ventas Totales Perdidas Utilidad";
-            this.VentasTotalesPerdidasUtilidad.Name = "VentasTotalesPerdidasUtilidad";
-            // 
-            // PrecioCompraPolitica
-            // 
-            this.PrecioCompraPolitica.HeaderText = "Precio de Compra";
-            this.PrecioCompraPolitica.Name = "PrecioCompraPolitica";
-            // 
-            // PrecioReembolsoPolitica
-            // 
-            this.PrecioReembolsoPolitica.HeaderText = "Precio de Reembolso";
-            this.PrecioReembolsoPolitica.Name = "PrecioReembolsoPolitica";
-            // 
-            // CostoUtilidadPolitica
-            // 
-            this.CostoUtilidadPolitica.HeaderText = "Costo de Utilidad";
-            this.CostoUtilidadPolitica.Name = "CostoUtilidadPolitica";
-            // 
-            // CostoPromedioPolitica
-            // 
-            this.CostoPromedioPolitica.HeaderText = "Costo Promedio Diario";
-            this.CostoPromedioPolitica.Name = "CostoPromedioPolitica";
-            // 
-            // CostoTotalPolitica
-            // 
-            this.CostoTotalPolitica.HeaderText = "Costo Total";
-            this.CostoTotalPolitica.Name = "CostoTotalPolitica";
             // 
             // tabPage4
             // 
@@ -1156,6 +884,278 @@ namespace FinalSIM_Ejercicio17
             this.progressBar.Size = new System.Drawing.Size(1053, 23);
             this.progressBar.TabIndex = 36;
             // 
+            // NDiaGrilla
+            // 
+            this.NDiaGrilla.HeaderText = "N° Dia";
+            this.NDiaGrilla.Name = "NDiaGrilla";
+            // 
+            // RandomCantidadOrdenGrilla
+            // 
+            this.RandomCantidadOrdenGrilla.HeaderText = "Random Cantidad Orden";
+            this.RandomCantidadOrdenGrilla.Name = "RandomCantidadOrdenGrilla";
+            this.RandomCantidadOrdenGrilla.Visible = false;
+            // 
+            // CantidadOrdenGrilla
+            // 
+            this.CantidadOrdenGrilla.HeaderText = "Cantidad de Orden";
+            this.CantidadOrdenGrilla.Name = "CantidadOrdenGrilla";
+            // 
+            // CantidadOrdenAcumGrilla
+            // 
+            this.CantidadOrdenAcumGrilla.HeaderText = "Cantidad de Orden Acumulado";
+            this.CantidadOrdenAcumGrilla.Name = "CantidadOrdenAcumGrilla";
+            // 
+            // RandomDemandaGrilla
+            // 
+            this.RandomDemandaGrilla.HeaderText = "Random Demanda";
+            this.RandomDemandaGrilla.Name = "RandomDemandaGrilla";
+            // 
+            // DemandaGrilla
+            // 
+            this.DemandaGrilla.HeaderText = "Demanda";
+            this.DemandaGrilla.Name = "DemandaGrilla";
+            // 
+            // DemandaAcumGrilla
+            // 
+            this.DemandaAcumGrilla.HeaderText = "Demanda Acumulada";
+            this.DemandaAcumGrilla.Name = "DemandaAcumGrilla";
+            // 
+            // VentasPerdidasGrilla
+            // 
+            this.VentasPerdidasGrilla.HeaderText = "Ventas Perdidas";
+            this.VentasPerdidasGrilla.Name = "VentasPerdidasGrilla";
+            // 
+            // VentasPerdidasReembolsoGrilla
+            // 
+            this.VentasPerdidasReembolsoGrilla.HeaderText = "Ventas Perdidas Reembolso Acum";
+            this.VentasPerdidasReembolsoGrilla.Name = "VentasPerdidasReembolsoGrilla";
+            // 
+            // VentasPerdidasUtilidadGrilla
+            // 
+            this.VentasPerdidasUtilidadGrilla.HeaderText = "Ventas Perdidas Utilidad Acum";
+            this.VentasPerdidasUtilidadGrilla.Name = "VentasPerdidasUtilidadGrilla";
+            // 
+            // PrecioCompraGrilla
+            // 
+            this.PrecioCompraGrilla.HeaderText = "Costo Compra";
+            this.PrecioCompraGrilla.Name = "PrecioCompraGrilla";
+            // 
+            // CostoCompraAcumuladoGrilla
+            // 
+            this.CostoCompraAcumuladoGrilla.HeaderText = "Costo de Compra Acumulado";
+            this.CostoCompraAcumuladoGrilla.Name = "CostoCompraAcumuladoGrilla";
+            // 
+            // ReembolsoGrilla
+            // 
+            this.ReembolsoGrilla.HeaderText = "Reembolso";
+            this.ReembolsoGrilla.Name = "ReembolsoGrilla";
+            // 
+            // ReembolsoAcumuladoGrilla
+            // 
+            this.ReembolsoAcumuladoGrilla.HeaderText = "Reembolso Acumulado";
+            this.ReembolsoAcumuladoGrilla.Name = "ReembolsoAcumuladoGrilla";
+            // 
+            // CostoUtilidadGrilla
+            // 
+            this.CostoUtilidadGrilla.HeaderText = "Costo de Utilidad";
+            this.CostoUtilidadGrilla.Name = "CostoUtilidadGrilla";
+            // 
+            // CostoUtilidadAcumuladoGrilla
+            // 
+            this.CostoUtilidadAcumuladoGrilla.HeaderText = "Costo Utilidad Acumulado";
+            this.CostoUtilidadAcumuladoGrilla.Name = "CostoUtilidadAcumuladoGrilla";
+            // 
+            // CostoDiarioGrilla
+            // 
+            this.CostoDiarioGrilla.HeaderText = "Costo Diario";
+            this.CostoDiarioGrilla.Name = "CostoDiarioGrilla";
+            // 
+            // CostoDiarioAcumuladoGrilla
+            // 
+            this.CostoDiarioAcumuladoGrilla.HeaderText = "Costo Diario Acumulado";
+            this.CostoDiarioAcumuladoGrilla.Name = "CostoDiarioAcumuladoGrilla";
+            // 
+            // CostoPromedioGrilla
+            // 
+            this.CostoPromedioGrilla.HeaderText = "Costo Promedio";
+            this.CostoPromedioGrilla.Name = "CostoPromedioGrilla";
+            // 
+            // NroDia
+            // 
+            this.NroDia.HeaderText = "N° Dia";
+            this.NroDia.Name = "NroDia";
+            // 
+            // RandomCantidadOrden
+            // 
+            this.RandomCantidadOrden.HeaderText = "Random Cantidad Orden";
+            this.RandomCantidadOrden.Name = "RandomCantidadOrden";
+            this.RandomCantidadOrden.Visible = false;
+            // 
+            // CantidadOrden
+            // 
+            this.CantidadOrden.HeaderText = "Cantidad de Orden";
+            this.CantidadOrden.Name = "CantidadOrden";
+            // 
+            // CantidadOrdenAcumulado
+            // 
+            this.CantidadOrdenAcumulado.HeaderText = "Cantidad de Orden Acumulado";
+            this.CantidadOrdenAcumulado.Name = "CantidadOrdenAcumulado";
+            // 
+            // RandomDemanda
+            // 
+            this.RandomDemanda.HeaderText = "Random Demanda";
+            this.RandomDemanda.Name = "RandomDemanda";
+            // 
+            // Demanda
+            // 
+            this.Demanda.HeaderText = "Demanda";
+            this.Demanda.Name = "Demanda";
+            // 
+            // DemandaAcumulada
+            // 
+            this.DemandaAcumulada.HeaderText = "Demanda Acumulada";
+            this.DemandaAcumulada.Name = "DemandaAcumulada";
+            // 
+            // VentasPerdidas
+            // 
+            this.VentasPerdidas.HeaderText = "Ventas Perdidas";
+            this.VentasPerdidas.Name = "VentasPerdidas";
+            // 
+            // VentasPerdidasReembolso
+            // 
+            this.VentasPerdidasReembolso.HeaderText = "Ventas Perdidas Reembolso Acum";
+            this.VentasPerdidasReembolso.Name = "VentasPerdidasReembolso";
+            // 
+            // VentasPerdidasUtilidad
+            // 
+            this.VentasPerdidasUtilidad.HeaderText = "Ventas Perdidas Utilidad Acum";
+            this.VentasPerdidasUtilidad.Name = "VentasPerdidasUtilidad";
+            // 
+            // PrecioCompra
+            // 
+            this.PrecioCompra.HeaderText = "Costo Compra";
+            this.PrecioCompra.Name = "PrecioCompra";
+            // 
+            // CostoCompraAcumulado
+            // 
+            this.CostoCompraAcumulado.HeaderText = "Costo de Compra Acumulado";
+            this.CostoCompraAcumulado.Name = "CostoCompraAcumulado";
+            // 
+            // Reembolso
+            // 
+            this.Reembolso.HeaderText = "Reembolso";
+            this.Reembolso.Name = "Reembolso";
+            // 
+            // ReembolsoAcumulado
+            // 
+            this.ReembolsoAcumulado.HeaderText = "Reembolso Acumulado";
+            this.ReembolsoAcumulado.Name = "ReembolsoAcumulado";
+            // 
+            // CostoUtilidad
+            // 
+            this.CostoUtilidad.HeaderText = "Costo de Utilidad";
+            this.CostoUtilidad.Name = "CostoUtilidad";
+            // 
+            // CostoUtilidadAcumulado
+            // 
+            this.CostoUtilidadAcumulado.HeaderText = "Costo Utilidad Acumulado";
+            this.CostoUtilidadAcumulado.Name = "CostoUtilidadAcumulado";
+            // 
+            // CostoDiario
+            // 
+            this.CostoDiario.HeaderText = "Costo Diario";
+            this.CostoDiario.Name = "CostoDiario";
+            // 
+            // CostoDiarioAcumulado
+            // 
+            this.CostoDiarioAcumulado.HeaderText = "Costo Diario Acumulado";
+            this.CostoDiarioAcumulado.Name = "CostoDiarioAcumulado";
+            // 
+            // CostoPromedio
+            // 
+            this.CostoPromedio.HeaderText = "Costo Promedio";
+            this.CostoPromedio.Name = "CostoPromedio";
+            // 
+            // N
+            // 
+            this.N.HeaderText = "N";
+            this.N.Name = "N";
+            // 
+            // FechaHora
+            // 
+            this.FechaHora.HeaderText = "Fecha y hora";
+            this.FechaHora.Name = "FechaHora";
+            // 
+            // CantidadDias
+            // 
+            this.CantidadDias.HeaderText = "Cantidad de Dias";
+            this.CantidadDias.Name = "CantidadDias";
+            // 
+            // Politica
+            // 
+            this.Politica.HeaderText = "Politica";
+            this.Politica.Name = "Politica";
+            // 
+            // DistribucionDemanda
+            // 
+            this.DistribucionDemanda.HeaderText = "Distribucion Demanda";
+            this.DistribucionDemanda.Name = "DistribucionDemanda";
+            // 
+            // DemandaInicialPolitica
+            // 
+            this.DemandaInicialPolitica.HeaderText = "Demanda Inicial ";
+            this.DemandaInicialPolitica.Name = "DemandaInicialPolitica";
+            // 
+            // VentasPerdidasInicialPolitica
+            // 
+            this.VentasPerdidasInicialPolitica.HeaderText = "Ventas Perdidas Iniciales";
+            this.VentasPerdidasInicialPolitica.Name = "VentasPerdidasInicialPolitica";
+            // 
+            // PrecioCompraPolitica
+            // 
+            this.PrecioCompraPolitica.HeaderText = "Precio de Compra";
+            this.PrecioCompraPolitica.Name = "PrecioCompraPolitica";
+            // 
+            // CostoUtilidadPolitica
+            // 
+            this.CostoUtilidadPolitica.HeaderText = "Costo de Utilidad";
+            this.CostoUtilidadPolitica.Name = "CostoUtilidadPolitica";
+            // 
+            // PrecioReembolsoPolitica
+            // 
+            this.PrecioReembolsoPolitica.HeaderText = "Precio de Reembolso";
+            this.PrecioReembolsoPolitica.Name = "PrecioReembolsoPolitica";
+            // 
+            // OrdenesTotales
+            // 
+            this.OrdenesTotales.HeaderText = "Cantidad Ordenes Totales";
+            this.OrdenesTotales.Name = "OrdenesTotales";
+            // 
+            // DemandaTotal
+            // 
+            this.DemandaTotal.HeaderText = "Demanda Total";
+            this.DemandaTotal.Name = "DemandaTotal";
+            // 
+            // VentasTotalesPerdidasReembolso
+            // 
+            this.VentasTotalesPerdidasReembolso.HeaderText = "Ventas Totales Perdidas Reembolso";
+            this.VentasTotalesPerdidasReembolso.Name = "VentasTotalesPerdidasReembolso";
+            // 
+            // VentasTotalesPerdidasUtilidad
+            // 
+            this.VentasTotalesPerdidasUtilidad.HeaderText = "Ventas Totales Perdidas Utilidad";
+            this.VentasTotalesPerdidasUtilidad.Name = "VentasTotalesPerdidasUtilidad";
+            // 
+            // CostoPromedioPolitica
+            // 
+            this.CostoPromedioPolitica.HeaderText = "Costo Promedio Diario";
+            this.CostoPromedioPolitica.Name = "CostoPromedioPolitica";
+            // 
+            // CostoTotalPolitica
+            // 
+            this.CostoTotalPolitica.HeaderText = "Costo Total";
+            this.CostoTotalPolitica.Name = "CostoTotalPolitica";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1243,25 +1243,6 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NroDia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RandomCantidadOrden;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadOrden;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadOrdenAcumulado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RandomDemanda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Demanda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DemandaAcumulada;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasReembolso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasUtilidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoCompraAcumulado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Reembolso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ReembolsoAcumulado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidadAcumulado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoDiario;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoDiarioAcumulado;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoPromedio;
         private System.Windows.Forms.GroupBox groupBoxOrden;
         private System.Windows.Forms.TextBox txtCantidadOrden;
         private System.Windows.Forms.RadioButton radioButtonCantidadFija;
@@ -1282,25 +1263,10 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.Label labelMediaExp;
         private System.Windows.Forms.Label labelDesvN;
         private System.Windows.Forms.Label labelMediaN;
-        private System.Windows.Forms.DataGridViewTextBoxColumn N;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FechaHora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Politica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadDias;
-        private System.Windows.Forms.DataGridViewTextBoxColumn OrdenesTotales;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DistribucionDemanda;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DemandaTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DemandaInicialPolitica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasInicialPolitica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotalesPerdidasReembolso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotalesPerdidasUtilidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompraPolitica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioReembolsoPolitica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidadPolitica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoPromedioPolitica;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CostoTotalPolitica;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.DataGridViewTextBoxColumn NDiaGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn RandomCantidadOrdenGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn CantidadOrdenGrilla;
@@ -1320,7 +1286,41 @@ namespace FinalSIM_Ejercicio17
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoDiarioGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoDiarioAcumuladoGrilla;
         private System.Windows.Forms.DataGridViewTextBoxColumn CostoPromedioGrilla;
-        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NroDia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RandomCantidadOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadOrden;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadOrdenAcumulado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RandomDemanda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Demanda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DemandaAcumulada;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasReembolso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasUtilidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompra;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoCompraAcumulado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reembolso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ReembolsoAcumulado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidadAcumulado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoDiario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoDiarioAcumulado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoPromedio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn N;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FechaHora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantidadDias;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Politica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DistribucionDemanda;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DemandaInicialPolitica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasPerdidasInicialPolitica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioCompraPolitica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoUtilidadPolitica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PrecioReembolsoPolitica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OrdenesTotales;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DemandaTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotalesPerdidasReembolso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VentasTotalesPerdidasUtilidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoPromedioPolitica;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CostoTotalPolitica;
     }
 }
 
